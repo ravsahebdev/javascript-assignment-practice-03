@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,Helvetica,sans-serif;
+}
+
+body{
+    background:#0f172a;
+    color:#fff;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+    padding:25px;
+}
+
+.container{
+    width:100%;
+    max-width:900px;
+    background:#1e293b;
+    padding:40px;
+    border-radius:18px;
+    border:1px solid rgba(255,255,255,.08);
+    box-shadow:0 20px 40px rgba(0,0,0,.35);
+}
+
+h1{
+    text-align:center;
+    color:#38bdf8;
+    font-size:2.3rem;
+    margin-bottom:10px;
+}
+
+.count{
+    text-align:center;
+    color:#facc15;
+    font-size:1.1rem;
+    font-weight:bold;
+    margin-bottom:20px;
+}
+
+.description{
+    text-align:center;
+    color:#cbd5e1;
+    line-height:1.8;
+    margin-bottom:30px;
+}
+
+.info-box{
+    background:#0f172a;
+    padding:25px;
+    border-left:5px solid #38bdf8;
+    border-radius:12px;
+    margin-bottom:25px;
+}
+
+.info-box h2{
+    color:#38bdf8;
+    margin-bottom:15px;
+}
+
+.info-box ul{
+    list-style:none;
+}
+
+.info-box li{
+    padding:12px 0;
+    color:#e2e8f0;
+    border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.info-box li:last-child{
+    border-bottom:none;
+}
+
+.note{
+    background:#334155;
+    padding:22px;
+    border-left:5px solid #22c55e;
+    border-radius:12px;
+    color:#f8fafc;
+    line-height:1.8;
+}
+
+strong{
+    color:#38bdf8;
+}
+
+@media(max-width:768px){
+
+    body{
+        padding:15px;
+    }
+
+    .container{
+        padding:25px;
+    }
+
+    h1{
+        font-size:1.8rem;
+    }
+
+    .count{
+        font-size:1rem;
+    }
+
+    .description,
+    .info-box li,
+    .note{
+        font-size:.95rem;
+    }
+
+}
+    </style>
+</head>
+
+<body><div class="container">
+
+    <h1>📦 Arrays Intermediate</h1>
+
+    <p class="count">📄 10 Practice Questions</p>
+
+    <p class="description">
+        This page contains intermediate-level JavaScript array practice questions
+        focused on array manipulation, searching, copying, merging, and modern ES6
+        techniques to improve coding efficiency and problem-solving skills.
+    </p>
+
+    <div class="info-box">
+        <h2>📚 What's Included?</h2>
+
+        <ul>
+            <li>✅ splice() Method</li>
+            <li>✅ slice() Method</li>
+            <li>✅ findIndex()</li>
+            <li>✅ includes()</li>
+            <li>✅ join()</li>
+            <li>✅ Spread Operator (...)</li>
+            <li>✅ Array Copying & Merging</li>
+            <li>✅ Math.max() with Arrays</li>
+            <li>✅ Array Destructuring</li>
+            <li>✅ Intermediate JavaScript Practice Questions</li>
+        </ul>
+    </div>
+
+    <div class="note">
+        💡 <strong>How to Use</strong><br><br>
+
+        Open your browser's <strong>Developer Console (F12 → Console)</strong>
+        to view the output of all JavaScript practice questions.
+
+        <br><br>
+
+        🎯 These exercises focus on intermediate array manipulation techniques,
+        helping you write cleaner, more efficient, and modern JavaScript code.
+    </div>
+
+</div>
+    <script>
+        // 1. Use `splice` to remove elements.
+        const array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
+        array.splice(0, 3)
+        console.log(array);
+
+        // 2. Use `splice` to insert elements.
+        array.splice(0, 0, 1, 2, 3);
+        console.log(array);
+
+        // 3. Use `slice` to copy array.
+        let copyArray = array.slice(0);
+        console.log(copyArray);
+
+        // 4. Find index of an element.
+        let find = array.findIndex((v) => v === 3);
+        console.log("Find: " + find);
+
+        // 5. Check if array contains a value.
+        let contains = array.includes(9);
+        console.log(contains);
+
+        // 6. Join array elements with .
+        let joinArray = array.join(' ')
+        console.log(joinArray);
+
+        // 7. Merge two arrays using spread operator.
+        const secondArray = [10, 20, 30, 40, 50];
+        let mergedArray = [...array, secondArray];
+        console.log(mergedArray);
+
+        // 8. Copy array using spread operator.
+        let copySpread = [...array];
+        console.log(copySpread);
+
+        // 9. Find maximum value using `Math.max`.
+        let maxValue = Math.max(...array);
+        console.log(maxValue);
+
+        // 10. Swap two variables using destructuring.
+        let [a, b] = array;
+        console.log(a, b);
+
+    </script>
+</body>
+
+</html>

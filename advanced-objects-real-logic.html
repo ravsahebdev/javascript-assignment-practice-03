@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,Helvetica,sans-serif;
+}
+
+body{
+    background:#0f172a;
+    color:#fff;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+    padding:25px;
+}
+
+.container{
+    width:100%;
+    max-width:900px;
+    background:#1e293b;
+    border-radius:18px;
+    padding:40px;
+    border:1px solid rgba(255,255,255,.08);
+    box-shadow:0 20px 40px rgba(0,0,0,.35);
+}
+
+h1{
+    text-align:center;
+    color:#38bdf8;
+    font-size:2.3rem;
+    margin-bottom:10px;
+}
+
+.count{
+    text-align:center;
+    color:#facc15;
+    font-size:1.1rem;
+    font-weight:bold;
+    margin-bottom:20px;
+}
+
+.description{
+    text-align:center;
+    color:#cbd5e1;
+    line-height:1.8;
+    margin-bottom:30px;
+}
+
+.info-box{
+    background:#0f172a;
+    padding:25px;
+    border-left:5px solid #38bdf8;
+    border-radius:12px;
+    margin-bottom:25px;
+}
+
+.info-box h2{
+    color:#38bdf8;
+    margin-bottom:15px;
+}
+
+.info-box ul{
+    list-style:none;
+}
+
+.info-box li{
+    padding:12px 0;
+    border-bottom:1px solid rgba(255,255,255,.08);
+    color:#e2e8f0;
+}
+
+.info-box li:last-child{
+    border-bottom:none;
+}
+
+.note{
+    background:#334155;
+    padding:22px;
+    border-left:5px solid #22c55e;
+    border-radius:12px;
+    color:#f8fafc;
+    line-height:1.8;
+}
+
+strong{
+    color:#38bdf8;
+}
+
+@media(max-width:768px){
+
+    body{
+        padding:15px;
+    }
+
+    .container{
+        padding:25px;
+    }
+
+    h1{
+        font-size:1.8rem;
+    }
+
+    .count{
+        font-size:1rem;
+    }
+
+    .description{
+        font-size:.95rem;
+    }
+
+    .info-box{
+        padding:18px;
+    }
+
+    .info-box li{
+        font-size:.95rem;
+    }
+
+    .note{
+        font-size:.95rem;
+    }
+
+}
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+    <h1>🏗️ Advanced Objects & Real-World Logic</h1>
+
+    <p class="count">📄 10 Practice Questions</p>
+
+    <p class="description">
+        This page contains advanced JavaScript object practice questions designed to
+        strengthen object manipulation, built-in object methods, and real-world
+        programming logic using practical coding exercises.
+    </p>
+
+    <div class="info-box">
+        <h2>📚 What's Included?</h2>
+
+        <ul>
+            <li>✅ Object.keys(), Object.values() & Object.entries()</li>
+            <li>✅ Object.freeze() & Object.seal()</li>
+            <li>✅ Object Iteration (for...in)</li>
+            <li>✅ Arrays of Objects</li>
+            <li>✅ Data Processing & Object Manipulation</li>
+            <li>✅ TODO Application Logic</li>
+            <li>✅ Shopping Cart System</li>
+            <li>✅ Real-World JavaScript Practice Questions</li>
+        </ul>
+    </div>
+
+    <div class="note">
+        💡 <strong>How to Use</strong><br><br>
+
+        Open the browser's <strong>Developer Console (F12 → Console)</strong>
+        to view the output of all JavaScript practice questions.
+
+        <br><br>
+
+        🎯 These questions focus on applying JavaScript objects to solve real-world programming scenarios rather than simple syntax-based exercises.
+    </div>
+
+</div>
+    <script>
+        // 1. Use `Object.keys()` on object.
+        let user = {
+            fName: "Rahul",
+            lName: "Sharama",
+            address: {
+                city: "Pune",
+                pinCode: 413518
+            }
+        }
+        let userKeys = Object.keys(user);
+        console.log(userKeys); // form of array
+
+        // 2. Use `Object.values()`.
+        let userValues = Object.values(user);
+        console.log(userValues); // form of array
+
+        // 3. Use `Object.entries()`.
+        let userEntries = Object.entries(user);
+        console.log(userEntries);  // form of array
+
+        // 4. Loop through object using `for...in`.
+        for (let key in user) {
+            console.log(`${key}: ${user[key]}`);
+        }
+
+        // 5. Freeze an object and test modification.
+        // Object.freeze(user);
+        // user.fName = "Rohit";
+        // user.age = 20;
+        // delete user.address;
+        // console.log(user);
+        // Object.freeze karane pe ham sirf read kar sakate hai object ko.
+        // object me koi modification nahi kar sakate.
+
+        // 6. Seal an object and test modification.
+        // Object.seal(user);
+        // user.fName = "Rohan";
+        // user.age = 21;
+        // delete user.fName;
+        // console.log(user);
+        // Object.seal karane pe ham sirf property ko update kar sakate hai.
+        // Object ko delete aur add nahi kar sakate.
+
+
+        // 7. Create array of objects for users.
+        const users = [
+            {
+                id: 1,
+                name: "Rohit",
+                age: 20
+            },
+            {
+                id: 2,
+                name: "Raju",
+                age: 22
+            },
+            {
+                id: 1,
+                name: "Ram",
+                age: 18
+            },
+            {
+                id: 1,
+                name: "Sham",
+                age: 19
+            }
+        ];
+        console.log(users);
+
+        // 8. Find user with highest age.
+        let highestAge = users.reduce((max, user) => {
+            return user.age > max.age ? user : max
+        });
+        console.log(highestAge);
+
+        // 9. Build a mini TODO app using arrays + objects.
+        let todos = [
+            {
+                id: 1,
+                title: "Learn HTML",
+                completed: true
+            },
+            {
+                id: 2,
+                title: "Learn CSS",
+                completed: true
+            },
+            {
+                id: 3,
+                title: "Learn JavaScript",
+                completed: true
+            }
+        ]
+
+        function addTodo(title) {
+            todos.push({
+                id: todos.length + 1,
+                title,
+                completed: false
+            });
+        }
+
+        addTodo("Learn React");
+
+        function showTodos() {
+            todos.forEach((todo) => {
+                console.log(todo);
+            })
+        }
+        showTodos();
+
+        function deleteTodo(id) {
+            todos = todos.filter(todo => todo.id !== id);
+        }
+        deleteTodo(4);
+
+        function completeTodo(id) {
+            todos.forEach(todo => {
+                if (todo.id === id) {
+                    todo.completed = true;
+                }
+            })
+        }
+
+        function updateTodo(id, newTitle) {
+            todos.forEach(todo => {
+                if (todo.id === id) {
+                    todo.title = newTitle;
+                }
+            });
+        }
+        updateTodo(3, "Master JavaScript");
+
+        // 10. Build a shopping cart system with:
+        // - add item
+        // - remove item
+        // - calculate total
+        // - stock update
+        let cartSystem = [
+            {
+                id: 1,
+                name: "I Phone 17 Pro Max",
+                price: 80000,
+                discount: 10,
+                rating: 5,
+                stock: 560,
+                isAvailable: true
+            }
+        ];
+
+
+        function addItem(productName, price, dis, rating, productstock, isAvailable) {
+            cartSystem.push(
+                {
+                    id: cartSystem.length + 1,
+                    name: productName,
+                    price: price,
+                    discount: dis,
+                    rating: rating,
+                    stock: productstock,
+                    isAvailable: isAvailable
+                }
+            )
+        }
+        addItem("Motorola g54 5G", 16000, 8, 5, 1200, true);
+        addItem("Redmi Note 15", 22000, 5, 4.7, 1900, true);
+
+        function removeItem(id) {
+            cartSystem = cartSystem.filter(item => item.id !== id)
+        }
+
+        removeItem(3)
+        function calculateTotal() {
+            return cartSystem.reduce((acc, curr) => {
+                return acc + curr.price;
+            }, 0)
+        }
+
+        function stockUpdate(id, stock) {
+            let item = cartSystem.find(item => item.id === id);
+            if (item) {
+                item.stock += stock;
+            }
+        }
+        stockUpdate(2, 720)
+        console.log(calculateTotal());
+        console.log(cartSystem);
+
+    </script>
+</body>
+
+</html>

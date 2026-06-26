@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,Helvetica,sans-serif;
+}
+
+body{
+    background:linear-gradient(135deg,#0f172a,#111827);
+    color:#fff;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+    padding:25px;
+}
+
+.container{
+    width:100%;
+    max-width:920px;
+    background:#1e293b;
+    padding:40px;
+    border-radius:18px;
+    border:1px solid rgba(255,255,255,.08);
+    box-shadow:0 20px 40px rgba(0,0,0,.35);
+}
+
+h1{
+    text-align:center;
+    color:#a855f7;
+    font-size:2.3rem;
+    margin-bottom:10px;
+}
+
+.count{
+    text-align:center;
+    color:#facc15;
+    font-size:1.1rem;
+    font-weight:bold;
+    margin-bottom:20px;
+}
+
+.description{
+    text-align:center;
+    color:#cbd5e1;
+    line-height:1.8;
+    margin-bottom:30px;
+}
+
+.info-box{
+    background:#0f172a;
+    padding:25px;
+    border-left:5px solid #a855f7;
+    border-radius:12px;
+    margin-bottom:25px;
+}
+
+.info-box h2{
+    color:#a855f7;
+    margin-bottom:15px;
+}
+
+.info-box ul{
+    list-style:none;
+}
+
+.info-box li{
+    padding:12px 0;
+    color:#e2e8f0;
+    border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.info-box li:last-child{
+    border-bottom:none;
+}
+
+.note{
+    background:#334155;
+    padding:22px;
+    border-left:5px solid #22c55e;
+    border-radius:12px;
+    color:#f8fafc;
+    line-height:1.8;
+}
+
+strong{
+    color:#a855f7;
+}
+
+@media(max-width:768px){
+
+    body{
+        padding:15px;
+    }
+
+    .container{
+        padding:25px;
+    }
+
+    h1{
+        font-size:1.9rem;
+    }
+
+    .count{
+        font-size:1rem;
+    }
+
+    .description,
+    .info-box li,
+    .note{
+        font-size:.95rem;
+    }
+
+}
+    </style>
+</head>
+
+<body><div class="container">
+
+    <h1>💼 Interview Level Questions</h1>
+
+    <p class="count">📄 5 Interview-Focused Questions</p>
+
+    <p class="description">
+        This page contains JavaScript interview-oriented practice questions focused
+        on explaining core concepts, comparing important features, and building a
+        deeper understanding of how JavaScript works internally.
+    </p>
+
+    <div class="info-box">
+
+        <h2>📚 What's Included?</h2>
+
+        <ul>
+            <li>✅ Function Declaration vs Function Expression</li>
+            <li>✅ Arrow Functions</li>
+            <li>✅ slice() vs splice()</li>
+            <li>✅ map() vs filter() vs reduce()</li>
+            <li>✅ for...in vs for...of</li>
+            <li>✅ Shallow Copy vs Deep Copy</li>
+            <li>✅ Modern JavaScript Concepts</li>
+            <li>✅ Frequently Asked Interview Questions</li>
+            <li>✅ JavaScript Theory & Concept Building</li>
+        </ul>
+
+    </div>
+
+    <div class="note">
+
+        💡 <strong>How to Use</strong><br><br>
+
+        Open your browser's <strong>Developer Console (F12 → Console)</strong>
+        while reading this file to explore the JavaScript concepts and examples.
+
+        <br><br>
+
+        🎯 These questions are commonly discussed in JavaScript interviews and are
+        designed to strengthen conceptual understanding rather than memorization.
+
+    </div>
+
+</div>
+    <script>
+        // 1. Difference between:
+        // - function declaration
+        // - function expression
+        // - arrow function
+        // Function Declaration:
+        // Ye normal function hota hai. Isko function define karne se pahale bhi call kar sakte hain
+        // kyuki JavaScript isko hoist kar deta hai. Isliye ye memory me pahale hi store ho jata hai.
+        //
+        // Syntax:
+        // function greet() { return "Hello"; }
+
+        // Function Expression:
+        // Isme function ko kisi variable me store kiya jata hai.
+        // Agar let ya const me store kiya ho to isko define karne se pahale call nahi kar sakte
+        // kyuki ye Temporal Dead Zone (TDZ) me hota hai.
+        //
+        // Syntax:
+        // const greet = function () { return "Hello"; }
+
+        // Arrow Function:
+        // Ye ES6 me introduce hua tha. Ye bhi ek variable me store hota hai.
+        // Agar function me sirf ek expression ho to return keyword likhne ki jarurat nahi hoti,
+        // JavaScript automatically value return kar deta hai.
+        // Arrow function ka apna this nahi hota, ye surrounding (lexical) scope ka this use karta hai.
+        //
+        // Syntax:
+        // const greet = () => { return "Hello"; };
+
+        // Ya short syntax:
+        // const greet = () => "Hello";
+
+        // 1. Difference between:
+        // - `slice`
+        // - `splice`
+        // slice():
+        // Ye array ka built-in method hai.
+        // Ye array ka ek part copy karke naya array return karta hai.
+        // Ye original array ko change nahi karta.
+        // Isme 2 parameters hote hain:
+        // 1. Start Index
+        // 2. End Index
+        // Example:
+        // arr.slice(0, 3)  // 0, 1, 2 index ke elements return karega.
+
+
+        // splice():
+        // Ye bhi array ka built-in method hai.
+        // Ye original array ko modify karta hai.
+        // Iska use elements ko delete, add ya replace karne ke liye hota hai.
+        // Isme 3 ya usse jyada parameters ho sakte hain:
+        // 1. Start Index
+        // 2. Delete Count
+        // 3. Naye Elements
+        // Example:
+        // arr.splice(1, 3, 4, 8, 9)
+        // Pehle index 1 se 3 elements delete honge,
+        // Fir unki jagah 4, 8, 9 add ho jayenge.
+
+
+        // 1. Difference between:
+        // - `map`
+        // - `filter`
+        // - `reduce`
+        // map():
+        // Ye array ka built-in method hai.
+        // Ye array ke har ek element par operation karta hai aur
+        // jitne elements original array me hote hain utne hi elements
+        // ke sath ek naya array return karta hai.
+        // Original array ko change nahi karta.
+
+
+        // filter():
+        // Ye array ka built-in method hai.
+        // Ye condition ke basis par kaam karta hai.
+        // Ye array ke har element par condition check karta hai.
+        // Agar condition true hoti hai to element naye array me add ho jata hai.
+        // Agar false hoti hai to element skip ho jata hai.
+        // Ye hamesha ek naya array return karta hai aur original array ko change nahi karta.
+
+        // reduce():
+        // Ye array ka built-in method hai.
+        // Ye pure array par operation karke ek single value return karta hai.
+        // Jaise sum, product, maximum, minimum, object banana, etc.
+        // Isme callback function ke 4 parameters hote hain:
+        // 1. accumulator -> Result ko store karta hai.
+        // 2. currentValue -> Current element.
+        // 3. currentIndex -> Current element ka index (Optional)
+        // 4. array -> Original array (Optional)
+        // Callback ke baad initialValue bhi pass kar sakte hain.
+        // Agar initialValue na de to accumulator ki value array ka first element hota hai.
+
+        // 1. Difference between:
+        // - `for...in`
+        // - `for...of`
+        // for...in:
+        // Ye loop mainly Object ki properties (keys) ko iterate karne ke liye use hota hai.
+        // Iski help se object ki keys aur unki values access kar sakte hain.
+        //
+        // Example:
+        // for (let key in obj) {
+        //     console.log(`${key}: ${obj[key]}`);
+        // }
+
+        // for...of:
+        // Ye loop iterable objects (jaise Array, String, Map, Set) ki values ko iterate
+        // karne ke liye use hota hai.
+        // Iski help se array ki values directly mil jati hain.
+       
+        // Example:
+        // for (let value of arr) {
+        //     console.log(value);
+        // }
+
+        // 1. Difference between:
+        // - shallow copy
+        // - deep copy
+// Shallow Copy:
+// Shallow copy me non-primitive data (Object, Array) ki sirf first level tak copy banti hai.
+// Agar object ya array ke andar nested object/array ho to unki copy nahi banti,
+// unka reference copy hota hai.
+// Isliye agar nested object/array me changes karenge to original me bhi changes dikhai denge.
+ 
+// Shallow copy banane ke tarike:
+// 1. Spread Operator (...)
+// 2. Object.assign()
+// 3. Array.slice()
+// 4. Array.from()
+
+
+// Deep Copy:
+// Deep copy me object ya array ki puri copy banti hai,
+// yani nested object/array ki bhi alag copy banti hai.
+// Isliye copy me changes karne par original object/array me koi change nahi hota.
+ 
+// Deep copy banane ke tarike:
+// 1. structuredClone()   (Modern JavaScript)
+// 2. JSON.parse(JSON.stringify(obj))  // Limited Deep Copy
+// 3. Manually recursive function (Advanced)
+
+    </script>
+</body>
+
+</html>

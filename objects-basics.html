@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #020617, #0f172a);
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 25px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 920px;
+            background: #1e293b;
+            padding: 40px;
+            border-radius: 18px;
+            border: 1px solid rgba(255, 255, 255, .08);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, .35);
+        }
+
+        h1 {
+            text-align: center;
+            color: #8b5cf6;
+            font-size: 2.3rem;
+            margin-bottom: 10px;
+        }
+
+        .count {
+            text-align: center;
+            color: #facc15;
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .description {
+            text-align: center;
+            color: #cbd5e1;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+
+        .info-box {
+            background: #0f172a;
+            padding: 25px;
+            border-left: 5px solid #8b5cf6;
+            border-radius: 12px;
+            margin-bottom: 25px;
+        }
+
+        .info-box h2 {
+            color: #8b5cf6;
+            margin-bottom: 15px;
+        }
+
+        .info-box ul {
+            list-style: none;
+        }
+
+        .info-box li {
+            padding: 12px 0;
+            color: #e2e8f0;
+            border-bottom: 1px solid rgba(255, 255, 255, .08);
+        }
+
+        .info-box li:last-child {
+            border-bottom: none;
+        }
+
+        code {
+            background: #334155;
+            padding: 2px 6px;
+            border-radius: 5px;
+            color: #facc15;
+        }
+
+        .note {
+            background: #334155;
+            padding: 22px;
+            border-left: 5px solid #22c55e;
+            border-radius: 12px;
+            color: #f8fafc;
+            line-height: 1.8;
+        }
+
+        strong {
+            color: #8b5cf6;
+        }
+
+        @media(max-width:768px) {
+
+            body {
+                padding: 15px;
+            }
+
+            .container {
+                padding: 25px;
+            }
+
+            h1 {
+                font-size: 1.9rem;
+            }
+
+            .count {
+                font-size: 1rem;
+            }
+
+            .description,
+            .info-box li,
+            .note {
+                font-size: .95rem;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <h1>🧩 Objects Basics</h1>
+
+        <p class="count">📄 15 Practice Questions</p>
+
+        <p class="description">
+            This page contains beginner to intermediate JavaScript object practice
+            questions designed to build a strong understanding of objects, properties,
+            methods, destructuring, nested objects, and modern ES6 object features.
+        </p>
+
+        <div class="info-box">
+
+            <h2>📚 What's Included?</h2>
+
+            <ul>
+                <li>✅ Creating Objects</li>
+                <li>✅ Dot & Bracket Notation</li>
+                <li>✅ Add, Update & Delete Properties</li>
+                <li>✅ Object Methods</li>
+                <li>✅ <code>this</code> Keyword</li>
+                <li>✅ Nested Objects</li>
+                <li>✅ Object Destructuring</li>
+                <li>✅ Renaming Variables</li>
+                <li>✅ Default Values</li>
+                <li>✅ Spread Operator</li>
+                <li>✅ Copying & Merging Objects</li>
+                <li>✅ JavaScript Object Practice Questions</li>
+            </ul>
+
+        </div>
+
+        <div class="note">
+
+            💡 <strong>How to Use</strong><br><br>
+
+            Open your browser's <strong>Developer Console (F12 → Console)</strong>
+            to view the output of all JavaScript practice questions.
+
+            <br><br>
+
+            🎯 These exercises focus on mastering JavaScript objects and understanding
+            how object-based data is created, accessed, modified, and managed in
+            real-world applications.
+
+        </div>
+
+    </div>
+    <script>
+        // 1. Create object for a student.
+        const student = {
+            name: "Yash Shendage",
+            age: 10,
+            studentClass: 4,
+            isSmart: true,
+        }
+
+        // 2. Access properties using dot notation.
+        console.log(student.name);
+
+        // 3. Access properties using bracket notation.
+        console.log(student['age']);
+
+        // 4. Add new property dynamically.
+        student.idCard = true;
+
+        // 5. Update existing property.
+        student.age = student.age + 1;
+
+        // 6. Delete a property.
+        delete student.idCard;
+
+        // 7. Create object method.
+        let robot = {
+            name: "Chitthi",
+            age: 2,
+            isSmart: true,
+            sayHi() { console.log("Hi"); }
+        }
+        robot.sayHi()
+
+        // 8. Use `this` keyword inside method.
+        let user = {
+            name: "Rahul",
+            age: 20,
+            welcome: function () {
+                console.log("Hello", this.name);
+            }
+        }
+        user.welcome();
+
+        // 9. Create nested object.
+        let user2 = {
+            name: "Ram",
+            contact: {
+                phone: 9980789580,
+                gmail: "ram@gmail.com"
+            }
+        }
+        console.log(user2.contact);
+
+        // 10. Access deeply nested property.
+        console.log(user2.contact.phone);
+        console.log(user2.contact.gmail);
+
+        // 11. Destructure object properties.
+        let { name, age } = user;
+        console.log(name); // Rahul
+        console.log(age); // 20
+
+        let { ...roboRest } = robot;
+        console.log(roboRest);
+
+        // 12. Rename variables while destructuring.
+        let product = {
+            pName: "Motorola",
+            pRam: "12 gb",
+            pRom: "256 gb"
+        }
+        let { pName: mName, pRam } = product;
+        console.log(mName);
+
+        // 13. Add default values during destructuring.
+        let { contact: { city = "Pune" } } = user2
+        console.log(city);
+
+        // 14. Copy object using spread operator.
+        let obj2 = { ...user };
+        console.log(obj2);
+
+        // 15. Merge two objects.
+        let obj3 = { ...user, ...product }
+        console.log(obj3);
+    </script>
+</body>
+
+</html>

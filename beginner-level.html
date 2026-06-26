@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 900px;
+            background: #1e293b;
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, .08);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, .35);
+        }
+
+        h1 {
+            text-align: center;
+            color: #22c55e;
+            font-size: 2.4rem;
+            margin-bottom: 10px;
+        }
+
+        .count {
+            text-align: center;
+            color: #facc15;
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .description {
+            text-align: center;
+            color: #cbd5e1;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+
+        .info-box {
+            background: #0f172a;
+            border-left: 5px solid #22c55e;
+            padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+        }
+
+        .info-box h2 {
+            color: #22c55e;
+            margin-bottom: 15px;
+        }
+
+        .info-box ul {
+            list-style: none;
+        }
+
+        .info-box li {
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, .08);
+            color: #e2e8f0;
+        }
+
+        .info-box li:last-child {
+            border-bottom: none;
+        }
+
+        .note {
+            background: #334155;
+            padding: 22px;
+            border-left: 5px solid #facc15;
+            border-radius: 12px;
+            line-height: 1.8;
+            color: #f8fafc;
+        }
+
+        strong {
+            color: #22c55e;
+        }
+
+        @media(max-width:768px) {
+
+            .container {
+                padding: 25px;
+            }
+
+            h1 {
+                font-size: 1.9rem;
+            }
+
+            .count {
+                font-size: 1rem;
+            }
+
+            .description,
+            .info-box li,
+            .note {
+                font-size: .95rem;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <h1>🌱 Beginner Level</h1>
+
+        <p class="count">📄 10 Practice Questions</p>
+
+        <p class="description">
+            This page contains beginner-friendly JavaScript function practice questions
+            designed to build a strong foundation in programming, logical thinking,
+            and problem-solving using core JavaScript concepts.
+        </p>
+
+        <div class="info-box">
+            <h2>📚 What's Included?</h2>
+
+            <ul>
+                <li>✅ Function Declaration</li>
+                <li>✅ Function Parameters & Arguments</li>
+                <li>✅ Return Statements</li>
+                <li>✅ Default Parameters</li>
+                <li>✅ Conditional Logic</li>
+                <li>✅ Even & Odd Number Check</li>
+                <li>✅
+                    <script>
+                        // Beginner Level
+
+                        // 1. Create a function named `greet` that prints`"Hello World"`.
+                        function greet() {
+                            return "Hello World";
+                        }
+                        console.log(greet());
+
+                        // 2. Create a function `add(a, b)` that returns the sum.
+                        function add(a, b) {
+                            return a + b;
+                        }
+                        console.log(add(5, 5));
+
+                        // 3. Write a function to calculate the square of a number.
+                        function sqr(num) {
+                            return num ** 2;
+                        }
+                        console.log(sqr(5));
+
+                        // 4. Create a function that checks whether a number is even or odd.
+                        function check(num) {
+                            return num % 2 === 0 ? "even" : "odd";
+                        }
+                        console.log(check(2));
+
+                        // 5. Write a function that converts Celsius to Fahrenheit.
+                        function convert(celsius) {
+                            return (celsius * 9 / 5) + 32 + "°F";
+                        }
+                        console.log(convert(30));
+
+                        // 6. Create a function with default parameter`"Guest"`.
+                        function wellcome(name = "Guest") {
+                            // return `Wellcome ${name || "Guest"}`;
+                            // return `Wellcome ${name ?? "Guest"}`;
+                            return `Wellcome ${name}`;
+                        }
+                        console.log(wellcome("Ravsaheb"));
+                        console.log(wellcome());
+
+                        // 7. Write a function that returns the greater of two numbers.
+                        function greater(a, b) {
+                            return a === b ? "Equal" : a > b ? "A is greater" : "B is greater";
+                        }
+                        console.log(greater(20, 15));
+
+                        // 8. Create a function to calculate area of rectangle.
+                        function area(length, width) {
+                            return length * width;
+                        }
+                        console.log(area(5, 10));
+
+                        // 9. Write a function that returns `"Adult"` if age ≥ 18 else `"Minor"`.
+                        function status(age) {
+                            return age >= 18 ? "Adult" : "Minor";
+                        }
+                        console.log(status(21));
+
+                        // 10. Create a function to reverse a string.
+                        function reverseStr(str) {
+                            return str.split('').reverse().join('')
+                        }
+                        console.log(reverseStr("JavaScript"));
+                    </script>
+</body>
+
+</html>

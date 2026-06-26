@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #020617, #0f172a);
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 25px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 920px;
+            background: #1e293b;
+            padding: 40px;
+            border-radius: 18px;
+            border: 1px solid rgba(255, 255, 255, .08);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, .35);
+        }
+
+        h1 {
+            text-align: center;
+            color: #06b6d4;
+            font-size: 2.3rem;
+            margin-bottom: 10px;
+        }
+
+        .count {
+            text-align: center;
+            color: #facc15;
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .description {
+            text-align: center;
+            color: #cbd5e1;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+
+        .info-box {
+            background: #0f172a;
+            padding: 25px;
+            border-left: 5px solid #06b6d4;
+            border-radius: 12px;
+            margin-bottom: 25px;
+        }
+
+        .info-box h2 {
+            color: #06b6d4;
+            margin-bottom: 15px;
+        }
+
+        .info-box ul {
+            list-style: none;
+        }
+
+        .info-box li {
+            padding: 12px 0;
+            color: #e2e8f0;
+            border-bottom: 1px solid rgba(255, 255, 255, .08);
+        }
+
+        .info-box li:last-child {
+            border-bottom: none;
+        }
+
+        .note {
+            background: #334155;
+            padding: 22px;
+            border-left: 5px solid #22c55e;
+            border-radius: 12px;
+            color: #f8fafc;
+            line-height: 1.8;
+        }
+
+        strong {
+            color: #06b6d4;
+        }
+
+        @media(max-width:768px) {
+
+            body {
+                padding: 15px;
+            }
+
+            .container {
+                padding: 25px;
+            }
+
+            h1 {
+                font-size: 1.9rem;
+            }
+
+            .count {
+                font-size: 1rem;
+            }
+
+            .description,
+            .info-box li,
+            .note {
+                font-size: .95rem;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <h1>🧠 Logic Building Questions</h1>
+
+        <p class="count">📄 10 Practice Questions</p>
+
+        <p class="description">
+            This page contains JavaScript logic-building practice questions designed to
+            improve analytical thinking, problem-solving skills, and algorithmic
+            understanding through practical coding exercises.
+        </p>
+
+        <div class="info-box">
+
+            <h2>📚 What's Included?</h2>
+
+            <ul>
+                <li>✅ Array Rotation</li>
+                <li>✅ Character Frequency Counter</li>
+                <li>✅ Longest Word Finder</li>
+                <li>✅ Anagram Detection</li>
+                <li>✅ String Capitalization</li>
+                <li>✅ Remove Falsy Values</li>
+                <li>✅ Object & Array Conversion</li>
+                <li>✅ Duplicate Element Detection</li>
+                <li>✅ Merge Sorted Arrays</li>
+                <li>✅ Logic Building Practice Questions</li>
+            </ul>
+
+        </div>
+
+        <div class="note">
+
+            💡 <strong>How to Use</strong><br><br>
+
+            Open your browser's <strong>Developer Console (F12 → Console)</strong>
+            to view the output of all JavaScript practice questions.
+
+            <br><br>
+
+            🎯 These challenges focus on improving logical thinking, algorithm design,
+            and writing efficient JavaScript solutions for real-world coding problems.
+
+        </div>
+
+    </div>
+    <script>
+        // 1. Rotate array by k positions.
+        function reverse(arr, start, end) {
+            while (start < end) {
+                let temp = arr[start];
+                arr[start] = arr[end];
+                arr[end] = temp;
+
+                start++;
+                end--;
+            }
+        }
+        function rotateArray(arr, k) {
+            let n = arr.length;
+            k = k % n;
+
+            reverse(arr, 0, n - 1);
+            reverse(arr, 0, k - 1);
+            reverse(arr, k, n - 1);
+
+            return arr;
+        }
+        let arr = [1, 2, 3, 4, 5, 6, 7];
+        console.log(rotateArray(arr, 3));
+
+        // 2. Find frequency of characters in string.
+        let str = "I Love JavaScript";
+
+        // function frequency(str) {
+        //     return str.toLowerCase().split("").reduce((acc, curr) => {
+        //         if (curr === " ") return acc;
+
+        //         acc[curr] = (acc[curr] || 0) + 1;
+        //         return acc;
+        //     }, {})
+        // }
+        // console.log(frequency(str));
+        function frequency(str) {
+            if (!str) return;
+            let copy = str.toLowerCase();
+            let obj = {};
+            for (let value of copy) {
+                if (/\s/.test(value)) continue;
+                obj[value] = (obj[value] || 0) + 1;
+            }
+            return obj;
+        }
+        console.log(frequency(str));
+
+        // 3. Find longest word in sentence.
+        function longest(str) {
+            return str.split(" ").reduce((acc, curr) => {
+                if (curr.length > acc.length) {
+                    return curr;
+                }
+                return acc;
+            }, "");
+        }
+        console.log(longest(str));
+
+        // 4. Check if two strings are anagrams.
+        function isAna(str1, str2) {
+            str1 = str1.toLowerCase();
+            str2 = str2.toLowerCase();
+            if (str1.length !== str2.length) {
+                return false;
+            }
+            let obj = {};
+            // Frequency count
+            for (let char of str1) {
+                obj[char] = (obj[char] || 0) + 1;
+            }
+            for (let char of str2) {
+                if (!obj[char]) {
+                    return false;
+                }
+                obj[char]--;
+            }
+            return true;
+        }
+        console.log(isAna("care", "race"));
+
+        // 5. Capitalize first letter of every word.
+        // let small = "i love javaScript";
+        // function eachCap(str) {
+        //     return str.split(" ").reduce((acc, curr) => {
+        //         acc += " " + curr[0].toUpperCase() + curr.slice(1);
+        //         return acc;
+        //     }, "").trim();
+        // }
+        // console.log(eachCap(small));
+
+        let small = "i love javaScript";
+        function eachCap(str) {
+            return str.split(" ").map((item) => {
+                return item[0].toUpperCase() + item.slice(1);
+            }).join(" ");
+        }
+        console.log(eachCap(small));
+
+        // 6. Remove falsy values from array.
+        let array = [1, 0, undefined, "Raju", false, -0, null, "", "Shyam", NaN];
+        let trueArray = array.filter(item => item);
+        console.log(trueArray);
+
+        // 7. Convert array into object.
+        let arr1 = ["Mango", "Apple", "Orange", "Grapes"];
+        let obj = {};
+        let next = 0;
+        for (let value of arr1) {
+            obj[next++] = value;
+        }
+        console.log(obj);
+
+        // 8. Convert object into array.
+        let obj1 = {
+            name: "Baburao",
+            age: 60
+        }
+        let arr2 = [];
+        for (let key in obj1) {
+            arr2.push([key, obj1[key]]);
+        }
+        console.log(arr2);
+        let a = Object.entries(obj1);
+        console.log(a);
+
+        // 9. Find duplicate elements.
+        let duplicate = [1, 2, 3, 5, 7, 3, 6, 8, 9, 0, 4, 1, 1, 3, 3, 6, 8, 0, 0,];
+        let purifire = {};
+        for (let value of duplicate) {
+            purifire[value] = (purifire[value] || 0) + 1;
+        }
+        let arr3 = [];
+        for (let key in purifire) {
+            if (purifire[key] > 1) {
+                arr3.push(Number(key));
+            }
+        }
+        console.log("Duplicate Mal: ", arr3);
+
+        // 10. Merge two sorted arrays.
+        function merge(arr1, arr2) {
+            let i = 0;
+            let j = 0;
+            let ans = [];
+
+            while (i < arr1.length && j < arr2.length) {
+                if (arr1[i] < arr2[j]) {
+                    ans.push(arr1[i]);
+                    i++;
+                } else {
+                    ans.push(arr2[j]);
+                    j++;
+                }
+            }
+
+            while (i < arr1.length) {
+                ans.push(arr1[i]);
+                i++;
+            }
+
+            while (j < arr2.length) {
+                ans.push(arr2[j]);
+                j++;
+            }
+
+            return ans;
+        }
+
+        console.log(merge([1, 3, 5], [2, 4, 6]));
+
+    </script>
+</body>
+
+</html>

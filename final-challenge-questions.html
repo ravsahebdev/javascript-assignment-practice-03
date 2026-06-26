@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #020617, #0f172a);
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 25px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 920px;
+            background: #1e293b;
+            padding: 45px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, .08);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, .45);
+        }
+
+        h1 {
+            text-align: center;
+            color: #f59e0b;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .count {
+            text-align: center;
+            color: #22c55e;
+            font-size: 1.15rem;
+            font-weight: bold;
+            margin-bottom: 22px;
+        }
+
+        .description {
+            text-align: center;
+            color: #cbd5e1;
+            line-height: 1.8;
+            margin-bottom: 35px;
+        }
+
+        .info-box {
+            background: #0f172a;
+            border-left: 6px solid #f59e0b;
+            padding: 28px;
+            border-radius: 14px;
+            margin-bottom: 30px;
+        }
+
+        .info-box h2 {
+            color: #f59e0b;
+            margin-bottom: 18px;
+        }
+
+        .info-box ul {
+            list-style: none;
+        }
+
+        .info-box li {
+            padding: 12px 0;
+            color: #e2e8f0;
+            border-bottom: 1px solid rgba(255, 255, 255, .08);
+        }
+
+        .info-box li:last-child {
+            border-bottom: none;
+        }
+
+        .note {
+            background: #334155;
+            padding: 24px;
+            border-left: 6px solid #22c55e;
+            border-radius: 14px;
+            color: #f8fafc;
+            line-height: 1.8;
+        }
+
+        strong {
+            color: #f59e0b;
+        }
+
+        @media(max-width:768px) {
+
+            body {
+                padding: 15px;
+            }
+
+            .container {
+                padding: 25px;
+            }
+
+            h1 {
+                font-size: 1.9rem;
+            }
+
+            .count {
+                font-size: 1rem;
+            }
+
+            .description,
+            .info-box li,
+            .note {
+                font-size: .95rem;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <h1>🏆 Final Challenge Questions</h1>
+
+        <p class="count">📄 5 Major JavaScript Challenges</p>
+
+        <p class="description">
+            This page contains advanced JavaScript challenge questions that combine
+            multiple concepts into complete mini applications. These challenges are
+            designed to improve logical thinking, object-oriented programming, data
+            management, and real-world application development skills.
+        </p>
+
+        <div class="info-box">
+
+            <h2>📚 What's Included?</h2>
+
+            <ul>
+                <li>📝 Notes App Logic</li>
+                <li>🎓 Student Dashboard</li>
+                <li>❓ Quiz Application</li>
+                <li>🛒 E-commerce Cart System</li>
+                <li>🎬 Netflix Watchlist System</li>
+                <li>✅ Arrays & Objects</li>
+                <li>✅ Classes & OOP</li>
+                <li>✅ CRUD Operations</li>
+                <li>✅ Data Handling</li>
+                <li>✅ Real-World JavaScript Challenges</li>
+            </ul>
+
+        </div>
+
+        <div class="note">
+
+            💡 <strong>How to Use</strong><br><br>
+
+            Open your browser's <strong>Developer Console (F12 → Console)</strong>
+            to view the output of all JavaScript challenge questions.
+
+            <br><br>
+
+            🚀 These projects simulate real-world application logic and are designed
+            to strengthen problem-solving, object-oriented programming, and JavaScript
+            development skills.
+
+        </div>
+
+    </div>
+    <script>
+        // 1. Build complete Notes App logic.
+        // Add Note
+        // View Notes
+        // Delete Note
+        // Search Note
+
+        let note = [];
+        let nextLine = 0
+        function addNote(title = "", body) {
+            note.push({ id: nextLine += 1, title, body });
+        }
+        function viewNote() {
+            note.forEach((item) => {
+                console.log(`${item.id}. ${item.title} ${item.body}`);
+            });
+        }
+        function delNote(id) {
+            if (id > 0 && id <= nextLine) {
+                note = note.filter(noteId => noteId.id !== id);
+                console.log(`${id} Is deleted successfully.`);
+            } else {
+                console.log(`${id} Is not found.`);
+            }
+        }
+
+        function searchNote(title) {
+            let showNote = note.find(item => item.title === title);
+            if (!showNote) {
+                console.log("Note is not found.");
+            } else {
+                console.log(`${showNote.id}. ${showNote.title} ${showNote.body}`);
+            }
+        }
+
+        addNote("Todo", "To Do app banani hai.");
+        addNote("Reduce Questions", "Reduce ke daily 2 questions solve karane hai.");
+        addNote("Watch Cource Video", "Sheryains coding school ki video dekhani hai.");
+        addNote("Git Push", "Git hub me aaj ek naya project dalana hai.");
+
+        console.log("--------  Notes App  --------");
+        console.log("-------------------------");
+        viewNote();
+        console.log("-------------------------");
+        delNote(1);
+        console.log("-------------------------");
+        searchNote("Git Push");
+        console.log("-------------------------");
+        viewNote();
+        console.log("-------------------------");
+
+        // 2. Build Student Dashboard logic.
+        // Add Student
+        // Update Marks
+        // Average
+        // Topper
+
+        let students = [];
+        stuNum = 0;
+        const addStudent = (classNo, name, marks) => {
+            students.push({ id: stuNum += 1, classNo, name, marks });
+        }
+
+        addStudent("10th", "Rahul", 80);
+        addStudent("10th", "Rohan", 88);
+        addStudent("10th", "Rohit", 85);
+        addStudent("10th", "Baburao", 95);
+        addStudent("10th", "Raju", 92);
+        addStudent("10th", "Shyam", 90);
+
+        const showStu = () => { students.forEach(student => console.log(`${student.id}. ${student.classNo} ${student.name} ${student.marks}`)) }
+        const upMarks = (id, marks) => {
+            let update = students.find(student => student.id === id);
+            if (!update) {
+                console.log(`${update.id} Student is not found.`);
+            } else {
+                update.marks = marks;
+                console.log(`${update.id} Student marks updated.`);
+            }
+        }
+
+        const average = () => {
+            let total = students.reduce((acc, curr) => acc + curr.marks, 0);
+            return `School Average: ${(total / stuNum).toFixed(2)}`;
+        }
+
+        const topper = () => {
+            let top = students.reduce((acc, curr) => {
+                if (acc.marks < curr.marks) {
+                    return curr;
+                }
+                return acc;
+            });
+            return `Topper: ${top.classNo} ${top.name} ${top.marks}`
+        }
+        console.log("--------  Student Dashboard  --------");
+
+        console.log("-------------------------");
+        upMarks(2, 90);
+        console.log("-------------------------");
+        console.log(average());
+        console.log("-------------------------");
+        console.log(topper());
+        console.log("-------------------------");
+        showStu();
+        console.log("-------------------------");
+
+        // 3. Build Quiz App data handling.
+        class QuizApp {
+            constructor() {
+                this.questions = [
+                    {
+                        id: 1,
+                        question: "What is the capital of India?",
+                        options: ["Mumbai", "Delhi", "Pune", "Nagpur"],
+                        answer: "Delhi"
+                    },
+                    {
+                        id: 2,
+                        question: "2 + 3 = ?",
+                        options: ["4", "5", "6", "7"],
+                        answer: "5"
+                    },
+                    {
+                        id: 3,
+                        question: "Which language is used for web development?",
+                        options: ["Java", "Python", "JavaScript", "C++"],
+                        answer: "JavaScript"
+                    }
+                ];
+
+                this.currentQuestion = 0;
+                this.score = 0;
+                this.userAnswers = [];
+            }
+
+            getCurrentQuestion() {
+                return this.questions[this.currentQuestion];
+            }
+
+            submitAnswer(selectedAnswer) {
+                let question = this.questions[this.currentQuestion];
+
+                this.userAnswers.push({
+                    questionId: question.id,
+                    question: question.question,
+                    selectedAnswer: selectedAnswer,
+                    correctAnswer: question.answer,
+                    isCorrect: selectedAnswer === question.answer
+                });
+
+                if (selectedAnswer === question.answer) {
+                    this.score++;
+                }
+
+                this.currentQuestion++;
+            }
+
+            isQuizFinished() {
+                return this.currentQuestion >= this.questions.length;
+            }
+
+            getResult() {
+                return {
+                    totalQuestions: this.questions.length,
+                    score: this.score,
+                    answers: this.userAnswers
+                };
+            }
+        }
+
+        let quiz = new QuizApp();
+
+        while (!quiz.isQuizFinished()) {
+
+            let question = quiz.getCurrentQuestion();
+
+            console.log("Question:", question.question);
+            console.log("Options:", question.options);
+
+            let selectedAnswer = question.options[0];
+
+            console.log("Selected:", selectedAnswer);
+
+            quiz.submitAnswer(selectedAnswer);
+
+            console.log("------------------------");
+        }
+
+        // Final Result
+        let result = quiz.getResult();
+
+        console.log("Final Score:", result.score + "/" + result.totalQuestions);
+        console.log("User Answers:");
+        console.log(result.answers);
+
+        // 4. Build E-commerce Cart System.
+        // Add Product
+        // Remove Product
+        // Increase Quantity
+        // Decrease Quantity
+        // Total Price
+        let cart = [];
+        let item = 0;
+
+        function addProduct(name, price, quantity) {
+            cart.push({ id: item += 1, name, price, quantity });
+        }
+
+        function removeProduct(id) {
+            if (id > 0 && id <= item) {
+                cart = cart.filter(value => value.id !== id);
+                console.log(`${id} is removed.`);
+            } else {
+                console.log(`${id} is not found.`);
+            }
+        }
+
+        function increaseQ(id, update) {
+            let inc = cart.find(cartId => cartId.id === id);
+
+            if (!inc) {
+                console.log(`${id} is not found.`);
+            } else {
+                inc.quantity += update;
+                console.log(`${inc.name} quantity updated by ${update}`);
+            }
+        }
+
+        function decreaseQ(id, update) {
+            let dec = cart.find(cartId => cartId.id === id);
+
+            if (!dec) {
+                console.log(`${id} is not found.`);
+            } else {
+                dec.quantity -= update;
+                console.log(`${dec.name} quantity updated by ${update}`);
+            }
+        }
+
+        function totalPrice() {
+            return cart.reduce((acc, curr) => acc + curr.price, 0);
+        }
+
+        function viewProduct() {
+            cart.forEach(item => console.log(`${item.id}. ${item.name} ${item.price} ${item.quantity}`));
+        }
+
+        addProduct("iPhone", 70000, 10);
+        addProduct("Motorola", 20000, 50);
+        addProduct("Redmi", 22000, 25);
+        addProduct("Vivo", 30000, 18);
+        addProduct("Infinix", 35000, 32);
+        console.log("--------  E-commerce Cart System  --------");
+        console.log("-------------------------");
+        viewProduct();
+        removeProduct(1);
+        console.log("-------------------------");
+        increaseQ(2, 5);
+        decreaseQ(5, 10);
+        console.log(totalPrice());
+        console.log("-------------------------");
+        viewProduct();
+        console.log("-------------------------");
+
+        // 5. Build Mini Netflix Watchlist System.
+        class Watchlist {
+            constructor() {
+                this.movies = [];
+            }
+
+            addMovie(title, genre) {
+                this.movies.push({
+                    id: this.movies.length + 1,
+                    title,
+                    genre,
+                    watched: false
+                });
+
+                console.log(`${title} added successfully.`);
+            }
+
+            viewMovies() {
+                if (this.movies.length === 0) {
+                    console.log("Watchlist is empty.");
+                    return;
+                }
+
+                this.movies.forEach(movie => {
+                    console.log(
+                        `ID: ${movie.id} | ${movie.title} | ${movie.genre} | ${movie.watched ? "Watched" : "Pending"
+                        }`
+                    );
+                });
+            }
+
+            markAsWatched(id) {
+                let movie = this.movies.find(movie => movie.id === id);
+
+                if (!movie) {
+                    console.log("Movie not found.");
+                    return;
+                }
+
+                movie.watched = true;
+                console.log(`${movie.title} marked as watched.`);
+            }
+
+            removeMovie(id) {
+                let index = this.movies.findIndex(movie => movie.id === id);
+
+                if (index === -1) {
+                    console.log("Movie not found.");
+                    return;
+                }
+
+                console.log(`${this.movies[index].title} removed.`);
+                this.movies.splice(index, 1);
+            }
+
+            viewWatchedMovies() {
+                let watchedMovies = this.movies.filter(movie => movie.watched);
+
+                console.log("Watched Movies:");
+                watchedMovies.forEach(movie => {
+                    console.log(movie.title);
+                });
+            }
+
+            viewPendingMovies() {
+                let pendingMovies = this.movies.filter(movie => !movie.watched);
+
+                console.log("Pending Movies:");
+                pendingMovies.forEach(movie => {
+                    console.log(movie.title);
+                });
+            }
+        }
+
+        let netflix = new Watchlist();
+
+        netflix.addMovie("Avengers: Endgame", "Action");
+        netflix.addMovie("Interstellar", "Sci-Fi");
+        netflix.addMovie("Jawan", "Action");
+
+        console.log("\nAll Movies:");
+        netflix.viewMovies();
+
+        netflix.markAsWatched(2);
+
+        console.log("\nWatched:");
+        netflix.viewWatchedMovies();
+
+        console.log("\nPending:");
+        netflix.viewPendingMovies();
+
+        netflix.removeMovie(3);
+
+        console.log("\nFinal Watchlist:");
+        netflix.viewMovies();
+
+    </script>
+</body>
+
+</html>

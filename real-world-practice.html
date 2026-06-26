@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #020617, #0f172a);
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 25px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 920px;
+            background: #1e293b;
+            padding: 40px;
+            border-radius: 18px;
+            border: 1px solid rgba(255, 255, 255, .08);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, .35);
+        }
+
+        h1 {
+            text-align: center;
+            color: #10b981;
+            font-size: 2.3rem;
+            margin-bottom: 10px;
+        }
+
+        .count {
+            text-align: center;
+            color: #facc15;
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .description {
+            text-align: center;
+            color: #cbd5e1;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+
+        .info-box {
+            background: #0f172a;
+            padding: 25px;
+            border-left: 5px solid #10b981;
+            border-radius: 12px;
+            margin-bottom: 25px;
+        }
+
+        .info-box h2 {
+            color: #10b981;
+            margin-bottom: 15px;
+        }
+
+        .info-box ul {
+            list-style: none;
+        }
+
+        .info-box li {
+            padding: 12px 0;
+            color: #e2e8f0;
+            border-bottom: 1px solid rgba(255, 255, 255, .08);
+        }
+
+        .info-box li:last-child {
+            border-bottom: none;
+        }
+
+        .note {
+            background: #334155;
+            padding: 22px;
+            border-left: 5px solid #22c55e;
+            border-radius: 12px;
+            color: #f8fafc;
+            line-height: 1.8;
+        }
+
+        strong {
+            color: #10b981;
+        }
+
+        @media(max-width:768px) {
+
+            body {
+                padding: 15px;
+            }
+
+            .container {
+                padding: 25px;
+            }
+
+            h1 {
+                font-size: 1.9rem;
+            }
+
+            .count {
+                font-size: 1rem;
+            }
+
+            .description,
+            .info-box li,
+            .note {
+                font-size: .95rem;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <h1>🌍 Real World Practice</h1>
+
+        <p class="count">📄 5 Real-World JavaScript Challenges</p>
+
+        <p class="description">
+            This page contains real-world JavaScript practice questions inspired by
+            everyday web application features. These challenges help build practical
+            problem-solving skills by implementing common functionalities used in modern
+            websites and applications.
+        </p>
+
+        <div class="info-box">
+
+            <h2>📚 What's Included?</h2>
+
+            <ul>
+                <li>✅ Authentication Validation</li>
+                <li>✅ OTP Generator</li>
+                <li>✅ Password Strength Checker</li>
+                <li>✅ Leaderboard System</li>
+                <li>✅ Attendance Management</li>
+                <li>✅ Classes & Objects</li>
+                <li>✅ Data Validation</li>
+                <li>✅ Real-World Logic Building</li>
+                <li>✅ Practical JavaScript Challenges</li>
+            </ul>
+
+        </div>
+
+        <div class="note">
+
+            💡 <strong>How to Use</strong><br><br>
+
+            Open your browser's <strong>Developer Console (F12 → Console)</strong>
+            to view the output of all JavaScript practice questions.
+
+            <br><br>
+
+            🚀 These exercises simulate real-world application features commonly found
+            in authentication systems, dashboards, and web applications to strengthen
+            practical JavaScript development skills.
+
+        </div>
+
+    </div>
+    <script>
+        // 1. Create authentication validation functions.
+        // Email valid hai ya nahi.
+        // Password strong hai ya nahi.
+        // Confirm password match kar raha hai ya nahi.
+        // Username sahi hai ya nahi.
+        function validateSignup(data) {
+
+            let errors = {};
+
+            let usernameError = validateUsername(data.username);
+            if (usernameError) {
+                errors.username = usernameError;
+            }
+
+            let emailError = validateEmail(data.email);
+            if (emailError) {
+                errors.email = emailError;
+            }
+
+            let passwordError = validatePassword(data.password);
+            if (passwordError) {
+                errors.password = passwordError;
+            }
+
+            let confirmError = validateConfirmPassword(
+                data.password,
+                data.confirmPassword
+            );
+
+            if (confirmError) {
+                errors.confirmPassword = confirmError;
+            }
+
+            return errors;
+        }
+
+        // 2. Create OTP generator.
+        function generateOTP() {
+            return Math.floor(1000 + Math.random() * 9000);
+        }
+
+        console.log(generateOTP());
+
+        // 3. Create password strength checker.
+        function checkPasswordStrength(password) {
+
+            let hasUpperCase = /[A-Z]/.test(password);
+            let hasLowerCase = /[a-z]/.test(password);
+            let hasNumber = /[0-9]/.test(password);
+            let hasSpecialChar = /[@$!%*?&]/.test(password);
+
+            if (password.length < 8) {
+                return "Weak";
+            }
+
+            if (hasUpperCase && hasLowerCase && hasNumber && hasSpecialChar) {
+                return "Strong";
+            }
+
+            return "Medium";
+        }
+
+        console.log(checkPasswordStrength("abc"));
+        console.log(checkPasswordStrength("abcdef12"));
+        console.log(checkPasswordStrength("Abc@1234"));
+
+        // 4. Build leaderboard system.
+        class Leaderboard {
+
+            constructor() {
+                this.players = [];
+            }
+
+            addPlayer(name, score) {
+                this.players.push({ name, score });
+            }
+
+            getLeaderboard() {
+
+                return [...this.players]
+                    .sort((a, b) => b.score - a.score)
+                    .map((player, index) => ({
+                        rank: index + 1,
+                        name: player.name,
+                        score: player.score
+                    }));
+            }
+        }
+
+        let board = new Leaderboard();
+
+        board.addPlayer("Ravi", 250);
+        board.addPlayer("Amit", 400);
+        board.addPlayer("Rahul", 150);
+        board.addPlayer("Neha", 350);
+
+        console.log(board.getLeaderboard());
+
+        // 5. Create attendance management logic.
+        class AttendanceManager {
+
+            constructor() {
+                this.students = [];
+            }
+
+            addStudent(name) {
+                this.students.push({
+                    name,
+                    isPresent: false
+                });
+            }
+
+            markAttendance(name, status) {
+                let student = this.students.find(student => student.name === name);
+
+                if (student) {
+                    student.isPresent = status;
+                } else {
+                    console.log("Student not found");
+                }
+            }
+
+            viewAttendance() {
+                this.students.forEach(student => {
+                    console.log(
+                        `${student.name} : ${student.isPresent ? "Present" : "Absent"}`
+                    );
+                });
+            }
+        }
+
+        let attendance = new AttendanceManager();
+
+        attendance.addStudent("Ravi");
+        attendance.addStudent("Amit");
+        attendance.addStudent("Neha");
+
+        attendance.markAttendance("Ravi", true);
+        attendance.markAttendance("Amit", false);
+        attendance.markAttendance("Neha", true);
+
+        attendance.viewAttendance();
+    </script>
+</body>
+
+</html>

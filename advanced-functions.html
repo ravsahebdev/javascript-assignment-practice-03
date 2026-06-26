@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,Helvetica,sans-serif;
+}
+
+body{
+    background:#0f172a;
+    color:#fff;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+    padding:25px;
+}
+
+.container{
+    width:100%;
+    max-width:850px;
+    background:#1e293b;
+    padding:40px;
+    border-radius:18px;
+    border:1px solid rgba(255,255,255,.08);
+    box-shadow:0 15px 35px rgba(0,0,0,.35);
+}
+
+h1{
+    text-align:center;
+    color:#38bdf8;
+    margin-bottom:20px;
+    font-size:2.2rem;
+}
+
+.description{
+    color:#cbd5e1;
+    text-align:center;
+    line-height:1.8;
+    margin-bottom:30px;
+}
+
+.info-box{
+    background:#0f172a;
+    border-left:5px solid #38bdf8;
+    padding:25px;
+    border-radius:12px;
+    margin-bottom:25px;
+}
+
+.info-box h2{
+    margin-bottom:15px;
+    color:#38bdf8;
+}
+
+.info-box ul{
+    list-style:none;
+}
+
+.info-box li{
+    margin:12px 0;
+    color:#e2e8f0;
+}
+
+.note{
+    background:#334155;
+    padding:20px;
+    border-radius:12px;
+    border-left:5px solid #22c55e;
+    line-height:1.8;
+    color:#f8fafc;
+}
+
+strong{
+    color:#38bdf8;
+}
+
+@media (max-width:768px){
+
+    body{
+        padding:15px;
+    }
+
+    .container{
+        padding:25px;
+    }
+
+    h1{
+        font-size:1.8rem;
+    }
+
+    .description{
+        font-size:.95rem;
+    }
+
+    .info-box{
+        padding:18px;
+    }
+
+    .info-box li{
+        font-size:.95rem;
+    }
+
+    .note{
+        font-size:.95rem;
+    }
+
+}
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <h1>⚙️ Advanced Functions</h1>
+
+        <p class="description">
+            This page contains advanced JavaScript function practice questions focused on
+            recursion, closures, currying, memoization, debounce, throttle, and custom
+            implementations of built-in array methods.
+        </p>
+
+        <div class="info-box">
+            <h2>📚 What's Included?</h2>
+
+            <ul>
+                <li>✅ Advanced Function Practice Questions</li>
+                <li>✅ Recursion Challenges</li>
+                <li>✅ Closures & Lexical Scope</li>
+                <li>✅ Currying & Memoization</li>
+                <li>✅ Debounce & Throttle Concepts</li>
+                <li>✅ Custom JavaScript Methods</li>
+                <li>✅ Logic Building Exercises</li>
+                <li>✅ Modern JavaScript (ES6+) Questions</li>
+            </ul>
+        </div>
+
+        <div class="note">
+            💡 <strong>How to Use</strong><br><br>
+
+            Open the browser's <strong>Developer Console (F12 → Console)</strong>
+            to view the output of all JavaScript practice questions.
+        </div>
+
+    </div>
+   
+    <script>
+        // 1. Write a recursive function for factorial.
+        function factorial(num) {
+            if (num <= 1) return 1;
+            return num * factorial(num - 1);
+        }
+        console.log(factorial(5));
+
+        // 2. Write recursive Fibonacci function.
+        function fibonacci(num) { // 10
+            if (num <= 0) return 0; // 0
+            if (num === 1) return 1; // 1
+            return fibonacci(num - 1) + fibonacci(num - 2);
+            // fib(10) = fib(9) + fib(8)
+            // fib(9) = fib(8) + fib(7)
+            // fib(8) = fib(7) + fib(6)
+            // fib(7) = fib(6) + fib(5)
+            // Fibonacci Formula:
+            // F(n) = F(n-1) + F(n-2)
+
+            // Example:
+            // fibonacci(5)
+            // = fibonacci(4) + fibonacci(3)
+            // = 3 + 2
+            // = 5
+
+            // fibonacci(10)
+            // = fibonacci(9) + fibonacci(8)
+            // = 34 + 21
+            // = 55
+        }
+        console.log(fibonacci(10));
+
+        // 3. Create a function that finds power using recursion.
+        function basePow(base, power) {
+            if (power === 0) return 1;
+            return base * basePow(base, power - 1);
+        }
+        console.log(basePow(5, 2));
+
+        // 4. Create an IIFE that prints `"Executed"`.
+        (function () {
+            console.log("Executed");
+        })();
+
+        (() => {
+            console.log("Executed");
+        })();
+
+        // 5. Write a function that memoizes factorial calculation.
+        let cache = {};
+        const memoizes = (num) => {
+            if (num <= 1) return 1;
+            // const key = `${num}`; // '10'
+            const key = num; // '10' // aisa likha kyunki object key vaise bhi string hi banati hai
+            if (cache[key] !== undefined) { // '10' === 10
+                console.log("cache mil gaya", cache[key], cache);
+                return cache[key]; // { '10': '120' }
+            }
+            let fact = num * memoizes(num - 1); // recursion
+
+            return cache[key] = fact; //  { '10': '120' }
+        }
+        /*
+        MEMOIZATION CONCEPT 👇
+
+        memoizes(5) call hua.
+
+        Recursion ne sirf 5 nahi nikala, balki:
+
+        factorial(2) = 2
+        factorial(3) = 6
+        factorial(4) = 24
+        factorial(5) = 120
+
+        Har level par ye line chali:
+
+        cache[key] = fact;
+
+        Isliye cache bana:
+
+        {
+          2: 2,
+          3: 6,
+          4: 24,
+          5: 120
+        }
+
+        Memoization ka goal sirf final answer store karna nahi hai.
+
+        Goal:
+        1. Answer calculate karo.
+        2. Store karo.
+        3. Future me wahi answer dubara calculate na karna pade.
+
+        Example:
+
+        memoizes(4)
+
+        Agar cache me 4 pehle se hai:
+
+        cache[4] = 24
+
+        to recursion chalega hi nahi.
+
+        Seedha 24 return ho jayega.
+
+        Recursion = Answer nikalo.
+        Memoization = Answer nikalo + Store karo + Reuse karo.
+        */
+        // console.log("First = ", memoizes(1));
+        // console.log("Second = ", memoizes(2));
+        // console.log("Third = ", memoizes(3));
+        // console.log("Fourth = ", memoizes(4));
+        console.log(memoizes(5));
+        console.log(memoizes(5));
+
+        // 6. Create a closure counter function.
+        const account = () => {
+            let money = 10000;
+            const counter = (addMoney) => {
+                money += addMoney;
+                return money;
+            }
+            return counter;
+        }
+
+        let user = account();
+        /*
+            Closure Concept 👇
+            account() ek function return karta hai.
+            let user = account();
+            Ab user ke paas returned function aa gaya.
+
+            Ye returned function 'money' variable ko yaad rakhta hai
+            even after account() execution finish ho jata hai.
+
+            Isliye:
+            user(2000) -> 12000
+            user(2000) -> 14000
+            user(2000) -> 16000
+            money private rehta hai aur closure ki wajah se
+            har call me updated value yaad rehti hai.
+        */
+        user(2000);
+        console.log(user(1000));
+        console.dir(user);
+
+        // 7. Write a function currying example for addition.
+        const cur = a => b => a + b; // arrow function
+        console.log(cur(50)(10));
+
+        function add(a) {
+            function add2(b) {
+                return a + b;
+            }
+            return add2;
+        }
+        /*
+            CURRYING 👇
+            Normal:
+            add(5, 10)
+
+            Currying:
+            add(5)(10)
+
+            Step 1:
+            add(5)
+
+            returns:
+            function(b){
+            return 5 + b;
+            }
+
+            Step 2:
+            (10)
+
+            returns:
+            5 + 10 = 15
+
+            Currying me ek function
+            ek argument leta hai aur
+            dusra function return karta hai.
+
+            Currying = Function returning Function.
+            Closure ki wajah se pehla argument yaad rehta hai.
+            */
+        let currying = add(10);
+        console.log(currying(20));
+
+        function discounted(discount) {
+            function price(price) {
+                return price - (price * discount / 100);
+            }
+            return price;
+        }
+        let tenPersentoff = discounted(10);
+        console.log(tenPersentoff(1000)); // 900
+
+        // 8. Create debounce function logic.
+        function debounce(fun, wait = 500) {
+            let timer = null; // First call me timer null hai.
+            return function () {
+                // First call: clearTimeout(null) Kuch nahi hoga.
+
+                // Second / Third call: timer variable me purani timer ID stored hai.
+                // Example: timer = 100
+                // clearTimeout(100) purane timer ko cancel kar dega.
+
+                clearTimeout(timer);
+                timer = setTimeout(() => {
+                    // Agar wait time complete ho gaya
+                    // aur is timer ko kisi ne cancel nahi kiya
+                    // tab callback chalega.
+
+                    fun();
+                }, wait);
+                // Browser naya timer banata hai.
+                // Example:
+                // timer = 101
+                // timer = 102
+                // timer = 103
+
+            };
+        }
+
+        let deb = debounce(function () {
+            console.log("Hello, i'm debounce.");
+        }, 1000);
+        deb();
+        deb();
+        deb();
+
+        // 9. Create throttle function logic.
+        function throttle(func, wait = 500) {
+            let timer = null;
+
+            return function () {
+                if (timer) return;
+                timer = setTimeout(() => {
+                    func();
+                    timer = null
+                }, wait);
+            }
+        }
+
+        let count = 0;
+        let showNum = document.getElementById("showNum");
+
+        const throttleHover = throttle(() => {
+            count++
+            showNum.innerText = count;
+        }, 500)
+
+        document.addEventListener("mouseover", throttleHover)
+
+        // 10. Write a function that executes only once.
+        function once() {
+            let executed = false;
+            return function () {
+                if (executed) return;
+
+                executed = true;
+                console.log("Mai aa gaya aur koi nahi aane vala.");
+            };
+        }
+
+        let ans = once();
+        ans();
+        ans();
+
+        // 11. Create custom implementation of `map`.
+        const array = [10, 20, 30, 40];
+        Array.prototype.myMap = function (callback) {
+            let result = [];
+            for (let i = 0; i < this.length; i++) {
+                result.push(callback(this[i], i, this));
+            }
+            return result;
+        }
+        let newArray = array.myMap(function (ele) {
+            return ele * 2;
+        });
+        console.log(newArray);
+
+        // 12. Create custom implementation of `filter`.
+        Array.prototype.myFilter = function (callback) {
+            let result = [];
+
+            for (let i = 0; i < this.length; i++) {
+                if (callback(this[i], i, this)) {
+                    result.push(this[i]);
+                }
+            }
+            return result;
+        };
+
+        let newFilter = array.myFilter(function (value) {
+            return value > 10;
+        });
+        console.log(newFilter);
+
+        // 13. Create custom implementation of `reduce`.
+        Array.prototype.myReduce = function (callback, initialvalue) {
+            let acc = initialvalue;
+            for (let i = 0; i < this.length; i++) {
+                acc = callback(acc, this[i]);
+            }
+            return acc;
+        }
+
+        let newReduce = array.myReduce(function (acc, curr) {
+            return acc + curr;
+        }, 0);
+
+        console.log(newReduce);
+
+        // 14. Create custom `forEach`.
+        Array.prototype.myForEach = function (callback) {
+            for (let i = 0; i < this.length; i++) {
+                callback(this[i], i, this);
+            }
+        }
+
+        array.myForEach(function (element, index) {
+            console.log(index + ": " + element);
+        });
+
+        // 15. Explain output:
+        // function test() {
+        //     return;
+        //     console.log("Hello");
+        // }
+
+        // console.log(test());
+        // return statement ke baad function turat stop ho jata hai.
+        // Isiliye return ke niche vala code execute nahi hota.
+        // Agar return ke sath koi value na di jaye,
+        // to function undefined return karata hai.
+    </script>
+
+</body>
+
+</html>

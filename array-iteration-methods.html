@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,Helvetica,sans-serif;
+}
+
+body{
+    background:#0f172a;
+    color:#fff;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+    padding:25px;
+}
+
+.container{
+    width:100%;
+    max-width:900px;
+    background:#1e293b;
+    padding:40px;
+    border-radius:18px;
+    border:1px solid rgba(255,255,255,.08);
+    box-shadow:0 20px 40px rgba(0,0,0,.35);
+}
+
+h1{
+    text-align:center;
+    color:#38bdf8;
+    margin-bottom:10px;
+    font-size:2.3rem;
+}
+
+.count{
+    text-align:center;
+    color:#facc15;
+    font-weight:bold;
+    margin-bottom:20px;
+    font-size:1.1rem;
+}
+
+.description{
+    text-align:center;
+    color:#cbd5e1;
+    line-height:1.8;
+    margin-bottom:30px;
+}
+
+.info-box{
+    background:#0f172a;
+    border-left:5px solid #38bdf8;
+    padding:25px;
+    border-radius:12px;
+    margin-bottom:25px;
+}
+
+.info-box h2{
+    color:#38bdf8;
+    margin-bottom:15px;
+}
+
+.info-box ul{
+    list-style:none;
+}
+
+.info-box li{
+    padding:12px 0;
+    color:#e2e8f0;
+    border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.info-box li:last-child{
+    border-bottom:none;
+}
+
+.note{
+    background:#334155;
+    border-left:5px solid #22c55e;
+    padding:22px;
+    border-radius:12px;
+    line-height:1.8;
+    color:#f8fafc;
+}
+
+strong{
+    color:#38bdf8;
+}
+
+@media(max-width:768px){
+
+    body{
+        padding:15px;
+    }
+
+    .container{
+        padding:25px;
+    }
+
+    h1{
+        font-size:1.8rem;
+    }
+
+    .count{
+        font-size:1rem;
+    }
+
+    .description,
+    .info-box li,
+    .note{
+        font-size:.95rem;
+    }
+}
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <h1>🔄 Array Iteration Methods</h1>
+
+        <p class="count">📄 20 Practice Questions</p>
+
+        <p class="description">
+            This page contains JavaScript practice questions focused on array iteration
+            methods and real-world data manipulation techniques. These exercises help
+            strengthen problem-solving skills while working with arrays, objects, and
+            functional programming concepts.
+        </p>
+
+        <div class="info-box">
+            <h2>📚 What's Included?</h2>
+
+            <ul>
+                <li>✅ forEach()</li>
+                <li>✅ map()</li>
+                <li>✅ filter()</li>
+                <li>✅ reduce()</li>
+                <li>✅ find() & findIndex()</li>
+                <li>✅ some() & every()</li>
+                <li>✅ flat()</li>
+                <li>✅ Set & Duplicate Removal</li>
+                <li>✅ Sorting Arrays of Objects</li>
+                <li>✅ Shopping Cart Calculations</li>
+                <li>✅ Student Data Processing</li>
+                <li>✅ Real-World JavaScript Practice Questions</li>
+            </ul>
+        </div>
+
+        <div class="note">
+            💡 <strong>How to Use</strong><br><br>
+
+            Open your browser's <strong>Developer Console (F12 → Console)</strong>
+            to view the output of all JavaScript practice questions.
+
+            <br><br>
+
+            🎯 These exercises focus on mastering JavaScript array methods through
+            practical coding challenges and real-world programming scenarios.
+        </div>
+
+    </div>
+    <script>
+        // 1. Use `forEach` to print all numbers doubled.
+        let array = [10, 20, 30, 40, 50];
+        array.forEach(num => console.log(num * 2));
+
+        // 2. Use `map` to square all numbers.
+        let squareNum = array.map(num => num * num);
+        console.log(squareNum);
+
+        // 3. Use `filter` to get even numbers.
+        let evenNum = array.filter(num => num % 2 == 0);
+        console.log(evenNum);
+
+        // 4. Use `reduce` to calculate sum.
+        let sum = array.reduce((acc, curr) => {
+            return acc + curr;
+        }, 0);
+        console.log(sum);
+
+        // 5. Use `reduce` to find maximum number.
+        let maxNum = array.reduce((acc, curr) => {
+            if (acc > curr) {
+                return acc;
+            } else {
+                return curr;
+            }
+        });
+        console.log(maxNum);
+
+        // 6. Use `find` to get first even number.
+        let firstEven = array.find(num => num % 2 === 0)
+        console.log(firstEven);
+
+        // 7. Use `findIndex` to locate number > 50.
+        // let 
+
+        // 8. Use `some` to check if any number is negative.
+        let findNeg = array.some(num => num < 0)
+        console.log(findNeg);
+
+        // 9. Use `every` to check if all numbers are positive.
+        let findAllPo = array.every(num => num > 0);
+        console.log(findAllPo);
+
+        // 10. Create array of names and convert all to uppercase.
+        let nameArray = ["Thor", "Iron Man", "Spider Man", "Capton America", "Natasha"];
+        nameArray.forEach(element => {
+            console.log(element.toUpperCase());
+        });
+
+        // 11. Filter all students with marks > 80.
+        let students = [
+            {
+                fName: "Rahul",
+                lName: "Sharama",
+                subjects: {
+                    html: 100,
+                    css: 98,
+                    javascript: 90,
+                    react: 85,
+                    nodejs: 95,
+                    mongodb: 98
+                }
+            },
+            {
+                fName: "Raju",
+                lName: "Varama",
+                subjects: {
+                    html: 90,
+                    css: 87,
+                    javascript: 67,
+                    react: 56,
+                    nodejs: 45,
+                    mongodb: 76
+                }
+            },
+            {
+                fName: "Sarthak",
+                lName: "Sharama",
+                subjects: {
+                    html: 100,
+                    css: 100,
+                    javascript: 100,
+                    react: 99,
+                    nodejs: 100,
+                    mongodb: 97
+                }
+            },
+            {
+                fName: "Ritik",
+                lName: "Dube",
+                subjects: {
+                    html: 90,
+                    css: 67,
+                    javascript: 60,
+                    react: 56,
+                    nodejs: 87,
+                    mongodb: 84
+                }
+            }
+        ];
+        function marks(studentArray) {
+
+            let stuMarks = studentArray.map(student => {
+                let result = "";
+                let studentName = "";
+                let arrayMark = "";
+                let totalMark = "";
+                let average = "";
+
+                studentName = student.fName + " " + student.lName;
+
+                arrayMark = Object.values(student.subjects);
+                totalMark = arrayMark.reduce((acc, curr) => {
+                    return acc + curr;
+                }, 0);
+                average = (totalMark / arrayMark.length).toFixed(2);
+                result = `${studentName}: ${average}%`;
+
+            });
+
+            let result = studentArray.filter(student => {
+                let arrayMark = Object.values(student.subjects);
+
+                // 12. Calculate average using reduce.
+                let total = arrayMark.reduce((acc, curr) => acc + curr, 0);
+                let average = total / arrayMark.length;
+                return average > 80
+            });
+            console.log(result);
+        }
+        marks(students);
+
+        // 13. Count occurrences of numbers in array.
+        const repetArray = [1, 1, 2, 3, 2, 3, 4, 5, 4, 5];
+        let count = {};
+
+        for (let value of repetArray) {
+            if (count[value]) {
+                count[value]++;
+            } else {
+                count[value] = 1;
+            }
+        }
+        console.log(count);
+
+        // 14. Flatten nested arrays using `flat`.
+        const flatArray = [1, 2, 5, 9, [1, 2], [4, 8, 5, 2]];
+        let flater = flatArray.flat()
+        console.log(flater);
+
+        // 15. Remove duplicates using `Set`.
+        const setArray = [10, 70, 50, 94, 39, 70, 28, 30, 20, 10];
+        let seter = [...new Set(setArray)];
+        console.log(seter);
+
+        // 16. Sort array of objects by age.
+        const user = [{ name: "Rahul", age: 20 }, { name: "Rohan", age: 22 }, { name: "Sarthak", age: 18 }, { name: "Akarsh", age: 14 }];
+        let sortAge = user.sort((a, b) => {
+            return a.age - b.age;
+        })
+        console.log(sortAge);
+
+        // 17. Find total price of shopping cart.
+        const cart = [
+            {
+                id: 1,
+                name: "iPhone 17 Pro Max",
+                price: 120000,
+                quantity: 1,
+            },
+            {
+                id: 2,
+                name: "AirPods Pro",
+                price: 25000,
+                quantity: 2,
+            },
+            {
+                id: 3,
+                name: "Apple Watch",
+                price: 45000,
+                quantity: 1,
+            },
+            {
+                id: 4,
+                name: "Power Bank",
+                price: 3000,
+                quantity: 3,
+            },
+        ];
+        // let cartItem = cart.map((value) => {
+        //     return value.price * value.quantity
+        // });
+
+        // let totalPrice = cartItem.reduce((acc, curr) => {
+        //     return acc + curr;
+        // }, 0)
+        // console.log(totalPrice);
+        const cartPrice = cart.reduce((acc, curr) => {
+            return acc + (curr.price * curr.quantity)
+        }, 0);
+        console.log(cartPrice);
+
+        // 18. Group users by age.
+        const users = [
+            { id: 1, name: "Rahul", age: 20 },
+            { id: 2, name: "Aman", age: 22 },
+            { id: 3, name: "Priya", age: 20 },
+            { id: 4, name: "Rohit", age: 21 },
+            { id: 5, name: "Neha", age: 22 },
+            { id: 6, name: "Karan", age: 20 },
+        ];
+        let group = users.reduce((acc, curr) => {
+            if (!acc[curr.age]) {
+                acc[curr.age] = [];
+            }
+            acc[curr.age].push(curr);
+            return acc;
+        }, {});
+        console.log(group);
+
+        // 19. Chain `filter` and `map`.
+
+        const classStudents = [
+            { id: 1, name: "Rahul", marks: 85 },
+            { id: 2, name: "Aman", marks: 42 },
+            { id: 3, name: "Neha", marks: 91 },
+            { id: 4, name: "Priya", marks: 35 },
+            { id: 5, name: "Rohit", marks: 76 },
+        ];
+
+        let stu = classStudents.filter(student => student.marks > 50).map(student => student.name.toUpperCase())
+
+        console.log(stu);
+
+        // 20. Explain difference between `map` and `forEach`.
+        // Ye dono Array ke methods hain aur array ke har element par iterate karte hain.
+
+        // Array.map()
+        // - Har element par operation karta hai.
+        // - Naya (modified) array return karta hai.
+        // - Original array ko change nahi karta (agar tum khud modify na karo).
+        // - Jab transformed data chahiye ho tab use karte hain.
+
+        // Array.forEach()
+        // - Har element par iterate karta hai.
+        // - Koi naya array return nahi karta (undefined return karta hai).
+        // - Side effects ke liye use hota hai, jaise console.log(), DOM update, API call, etc.
+
+    </script>
+</body>
+
+</html>

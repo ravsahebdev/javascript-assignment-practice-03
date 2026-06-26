@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            background: #0f172a;
+            color: #fff;
+            font-family: Arial, Helvetica, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            width: 100%;
+            background: #1e293b;
+            border-radius: 15px;
+            padding: 40px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #38bdf8;
+            margin-bottom: 20px;
+        }
+
+        .description {
+            color: #d1d5db;
+            line-height: 1.8;
+            text-align: center;
+        }
+
+        .info-box {
+            margin-top: 30px;
+        }
+
+        .info-box h2 {
+            color: #38bdf8;
+        }
+
+        .info-box ul {
+            padding-left: 20px;
+            line-height: 2;
+        }
+
+        .note {
+            margin-top: 30px;
+            background: #334155;
+            padding: 20px;
+            border-left: 5px solid #38bdf8;
+            border-radius: 10px;
+        }
+
+        strong {
+            color: #38bdf8;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <h1>🚀 Advanced Functional Programming</h1>
+
+        <p class="description">
+            This page contains a collection of advanced JavaScript functional programming
+            practice questions designed to strengthen problem-solving skills and deepen
+            understanding of modern JavaScript concepts.
+        </p>
+
+        <div class="info-box">
+            <h2>📚 What's Included?</h2>
+
+            <ul>
+                <li>✅ Functional Programming Practice Questions</li>
+                <li>✅ Higher-Order Function Challenges</li>
+                <li>✅ Real-world JavaScript Coding Exercises</li>
+                <li>✅ Advanced Logic Building Questions</li>
+                <li>✅ ES6+ Functional Programming Concepts</li>
+            </ul>
+        </div>
+
+        <div class="note">
+            💡 <strong>How to Use</strong><br><br>
+
+            Open your browser's
+            <strong>Developer Console (F12 → Console)</strong>
+            to view the output of all JavaScript practice questions.
+        </div>
+
+    </div>
+    <script>
+        // 1. Implement compose function.
+        function compose(...functions) {
+            return function (value) {
+                return functions.reduceRight((acc, curr) => {
+                    return curr(acc);
+                }, value);
+            };
+        }
+
+        function add2(num) {
+            return num + 2;
+        }
+
+        function multiply3(num) {
+            return num * 3;
+        }
+
+        function square(num) {
+            return num * num;
+        }
+
+        const result = compose(square, multiply3, add2);
+
+        console.log(result(5));
+
+        // 2. Implement pipe function.
+        function pipe(...functions) {
+            return function (value) {
+                return functions.reduce((acc, curr) => {
+                    return curr(acc);
+                }, value);
+            };
+        }
+
+        function add2(num) {
+            return num + 2;
+        }
+
+        function multiply3(num) {
+            return num * 3;
+        }
+
+        function square(num) {
+            return num * num;
+        }
+
+        const re = pipe(add2, multiply3, square);
+
+        console.log(re(5));
+
+        // 3. Create custom event emitter.
+        class EventEmitter {
+            constructor() {
+                this.events = {};
+            }
+
+            on(eventName, callback) {
+                if (!this.events[eventName]) {
+                    this.events[eventName] = [];
+                }
+
+                this.events[eventName].push(callback);
+            }
+
+            emit(eventName, ...args) {
+                if (!this.events[eventName]) {
+                    return;
+                }
+
+                this.events[eventName].forEach(callback => {
+                    callback(...args);
+                });
+            }
+
+            off(eventName, callback) {
+                if (!this.events[eventName]) {
+                    return;
+                }
+
+                this.events[eventName] = this.events[eventName].filter(
+                    event => event !== callback
+                );
+            }
+
+            once(eventName, callback) {
+
+                const wrapper = (...args) => {
+                    callback(...args);
+                    this.off(eventName, wrapper);
+                };
+
+                this.on(eventName, wrapper);
+            }
+        }
+
+        const emitter = new EventEmitter();
+
+        function welcome(name) {
+            console.log(`Welcome ${name}`);
+        }
+
+        function bye(name) {
+            console.log(`Good Bye ${name}`);
+        }
+
+        emitter.on("login", welcome);
+        emitter.on("logout", bye);
+
+        emitter.emit("login", "Ravi");
+        emitter.emit("logout", "Ravi");
+
+        emitter.off("login", welcome);
+
+        emitter.emit("login", "Amit");
+
+        emitter.once("payment", amount => {
+            console.log(`Payment Success: ₹${amount}`);
+        });
+
+        emitter.emit("payment", 500);
+        emitter.emit("payment", 1000);
+
+        // 4. Build promise-like function logic.
+        class MyPromise {
+            constructor(executor) {
+                this.successCallback = null;
+                this.errorCallback = null;
+
+                const resolve = (value) => {
+                    if (this.successCallback) {
+                        this.successCallback(value);
+                    }
+                };
+
+                const reject = (error) => {
+                    if (this.errorCallback) {
+                        this.errorCallback(error);
+                    }
+                };
+
+                executor(resolve, reject);
+            }
+
+            then(callback) {
+                this.successCallback = callback;
+                return this;
+            }
+
+            catch(callback) {
+                this.errorCallback = callback;
+                return this;
+            }
+        }
+
+        const promise1 = new MyPromise((resolve, reject) => {
+            setTimeout(() => {
+                resolve("Data Loaded Successfully");
+            }, 2000);
+        });
+
+        promise1.then((data) => {
+            console.log(data);
+        });
+
+        const promise2 = new MyPromise((resolve, reject) => {
+            setTimeout(() => {
+                reject("Something went wrong");
+            }, 3000);
+        });
+
+        promise2.catch((error) => {
+            console.log(error);
+        });
+
+        // 5. Create retry mechanism function.
+        async function retry(fn, retries) {
+            while (retries > 0) {
+                try {
+                    return await fn();
+                } catch (error) {
+                    retries--;
+                    console.log(`Retry Left: ${retries}`);
+
+                    if (retries === 0) {
+                        throw error;
+                    }
+                }
+            }
+        }
+
+        let count = 0;
+
+        async function fetchData() {
+            count++;
+
+            console.log(`Attempt ${count}`);
+
+            if (count < 3) {
+                throw new Error("API Failed");
+            }
+
+            return "Data Loaded";
+        }
+
+        retry(fetchData, 3)
+            .then(result => console.log(result))
+            .catch(error => console.log(error.message));
+
+    </script>
+</body>
+
+</html>

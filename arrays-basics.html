@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,Helvetica,sans-serif;
+}
+
+body{
+    background:#0f172a;
+    color:#fff;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+    padding:25px;
+}
+
+.container{
+    width:100%;
+    max-width:900px;
+    background:#1e293b;
+    padding:40px;
+    border-radius:18px;
+    border:1px solid rgba(255,255,255,.08);
+    box-shadow:0 20px 40px rgba(0,0,0,.35);
+}
+
+h1{
+    text-align:center;
+    color:#38bdf8;
+    font-size:2.3rem;
+    margin-bottom:10px;
+}
+
+.count{
+    text-align:center;
+    color:#facc15;
+    font-size:1.1rem;
+    font-weight:bold;
+    margin-bottom:20px;
+}
+
+.description{
+    text-align:center;
+    color:#cbd5e1;
+    line-height:1.8;
+    margin-bottom:30px;
+}
+
+.info-box{
+    background:#0f172a;
+    padding:25px;
+    border-left:5px solid #38bdf8;
+    border-radius:12px;
+    margin-bottom:25px;
+}
+
+.info-box h2{
+    color:#38bdf8;
+    margin-bottom:15px;
+}
+
+.info-box ul{
+    list-style:none;
+}
+
+.info-box li{
+    padding:12px 0;
+    color:#e2e8f0;
+    border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.info-box li:last-child{
+    border-bottom:none;
+}
+
+.note{
+    background:#334155;
+    padding:22px;
+    border-left:5px solid #22c55e;
+    border-radius:12px;
+    color:#f8fafc;
+    line-height:1.8;
+}
+
+strong{
+    color:#38bdf8;
+}
+
+@media(max-width:768px){
+
+    body{
+        padding:15px;
+    }
+
+    .container{
+        padding:25px;
+    }
+
+    h1{
+        font-size:1.8rem;
+    }
+
+    .count{
+        font-size:1rem;
+    }
+
+    .description,
+    .info-box li,
+    .note{
+        font-size:.95rem;
+    }
+
+}
+    </style>
+</head>
+
+<body><div class="container">
+
+    <h1>📦 Arrays Basics</h1>
+
+    <p class="count">📄 10 Practice Questions</p>
+
+    <p class="description">
+        This page contains beginner-friendly JavaScript array practice questions
+        designed to build a strong foundation in array operations, element access,
+        and commonly used array methods.
+    </p>
+
+    <div class="info-box">
+        <h2>📚 What's Included?</h2>
+
+        <ul>
+            <li>✅ Creating Arrays</li>
+            <li>✅ Accessing Array Elements</li>
+            <li>✅ Array Length</li>
+            <li>✅ push() & pop()</li>
+            <li>✅ shift() & unshift()</li>
+            <li>✅ reverse()</li>
+            <li>✅ Sorting Arrays</li>
+            <li>✅ Ascending & Descending Order</li>
+            <li>✅ Beginner-Level Coding Exercises</li>
+            <li>✅ JavaScript Array Fundamentals</li>
+        </ul>
+    </div>
+
+    <div class="note">
+        💡 <strong>How to Use</strong><br><br>
+
+        Open your browser's <strong>Developer Console (F12 → Console)</strong>
+        to view the output of all JavaScript practice questions.
+
+        <br><br>
+
+        🎯 These exercises focus on understanding the fundamentals of JavaScript
+        arrays before moving to advanced array methods and real-world problems.
+    </div>
+
+</div>
+    <script>
+        // Beginner
+
+        // 1. Create an array of 5 fruits.
+        const fruitsArray = ["Mango", "Apple", "Orange", "Pine Apple"];
+
+        // 2. Print first and last element of array.
+        console.log("First Fruit: " + fruitsArray[0]);
+        console.log("Last Fruit: " + fruitsArray[4]);
+
+        // 3. Find length of array.
+        console.log("Length of array: " + fruitsArray.length);
+
+        // 4. Add element at end using `push`.
+        fruitsArray.push("Banana");
+
+        // 5. Remove last element using `pop`.
+        fruitsArray.pop();
+
+        // 6. Add element at beginning using `unshift`.
+        fruitsArray.unshift("Licchi");
+
+        // 7. Remove first element using `shift`.
+        fruitsArray.shift();
+        
+        console.log(fruitsArray);
+        
+        // 8. Reverse an array.
+        fruitsArray.reverse();
+
+        console.log(fruitsArray);
+
+        // 9. Sort numbers ascending.
+        const numsArray = [2, 8, 5, 0, 3, 9, 6, 4, 1, 7];
+        let ascending = numsArray.sort((a, b) => a - b);
+        console.log(ascending);
+
+        // 10. Sort numbers descending.
+        let descending = numsArray.sort((a, b) => b - a);
+        console.log(descending);
+
+    </script>
+</body>
+
+</html>

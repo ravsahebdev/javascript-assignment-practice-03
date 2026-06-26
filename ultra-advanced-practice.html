@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #020617, #0f172a);
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 25px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 950px;
+            background: #1e293b;
+            padding: 45px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, .08);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, .45);
+        }
+
+        h1 {
+            text-align: center;
+            color: #ef4444;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .count {
+            text-align: center;
+            color: #facc15;
+            font-size: 1.15rem;
+            font-weight: bold;
+            margin-bottom: 22px;
+        }
+
+        .description {
+            text-align: center;
+            color: #cbd5e1;
+            line-height: 1.8;
+            margin-bottom: 35px;
+        }
+
+        .info-box {
+            background: #0f172a;
+            border-left: 6px solid #ef4444;
+            padding: 28px;
+            border-radius: 14px;
+            margin-bottom: 30px;
+        }
+
+        .info-box h2 {
+            color: #ef4444;
+            margin-bottom: 18px;
+        }
+
+        .info-box ul {
+            list-style: none;
+        }
+
+        .info-box li {
+            padding: 12px 0;
+            color: #e2e8f0;
+            border-bottom: 1px solid rgba(255, 255, 255, .08);
+        }
+
+        .info-box li:last-child {
+            border-bottom: none;
+        }
+
+        .note {
+            background: #334155;
+            padding: 24px;
+            border-left: 6px solid #22c55e;
+            border-radius: 14px;
+            color: #f8fafc;
+            line-height: 1.8;
+        }
+
+        strong {
+            color: #ef4444;
+        }
+
+        @media(max-width:768px) {
+
+            body {
+                padding: 15px;
+            }
+
+            .container {
+                padding: 25px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .count {
+                font-size: 1rem;
+            }
+
+            .description,
+            .info-box li,
+            .note {
+                font-size: .95rem;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <h1>🔥 Ultra Advanced Practice</h1>
+
+        <p class="count">📄 10 Advanced JavaScript Challenges</p>
+
+        <p class="description">
+            This page contains ultra-advanced JavaScript practice questions focused on
+            custom implementations, object-oriented programming, functional programming,
+            system design, and real-world application logic. These challenges are
+            designed to push your JavaScript skills beyond the fundamentals.
+        </p>
+
+        <div class="info-box">
+
+            <h2>📚 What's Included?</h2>
+
+            <ul>
+                <li>✅ Custom Array.prototype.map()</li>
+                <li>✅ Custom Array.prototype.filter()</li>
+                <li>✅ Custom Array.prototype.reduce()</li>
+                <li>✅ Deep Clone Implementation</li>
+                <li>✅ Student Management System</li>
+                <li>✅ Library Management System</li>
+                <li>✅ Expense Tracker</li>
+                <li>✅ Inventory Management System</li>
+                <li>✅ Function Composition</li>
+                <li>✅ Calculator Using Objects & Methods</li>
+                <li>✅ Object-Oriented Programming (OOP)</li>
+                <li>✅ Advanced JavaScript Practice Questions</li>
+            </ul>
+
+        </div>
+
+        <div class="note">
+
+            💡 <strong>How to Use</strong><br><br>
+
+            Open your browser's <strong>Developer Console (F12 → Console)</strong>
+            to view the output of all JavaScript practice questions.
+
+            <br><br>
+
+            🚀 These challenges are designed to simulate production-level JavaScript
+            development and strengthen your understanding of custom implementations,
+            OOP, functional programming, and real-world application architecture.
+
+        </div>
+
+    </div>
+    <script>
+        const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+        // 1. Build custom `Array.prototype.map`.
+        Array.prototype.myMap = function (callback) {
+            let result = [];
+            for (let i = 0; i < this.length; i++) {
+                if (i in this) {
+                    result.push(callback(this[i], i, this));
+                }
+            }
+            return result;
+        }
+        let arr2 = arr.myMap(function (element, inx) {
+            return element * 2
+        });
+        console.log(arr2);
+
+        // 2. Build custom `Array.prototype.filter`.
+        Array.prototype.myFilter = function (callback) {
+            let result = [];
+            for (let i = 0; i < this.length; i++) {
+                if (callback(this[i], i, this)) {
+                    result.push(this[i])
+                }
+            }
+            return result;
+        }
+
+        let arr3 = arr.myFilter(function (value) {
+            return value > 5;
+        })
+        console.log(arr3);
+
+        // 3. Build custom `Array.prototype.reduce`.
+        Array.prototype.myReduce = function (callback, initialValue) {
+            let acc = initialValue;
+            let start = 0;
+            if (acc === undefined) {
+                acc = this[0];
+                start = 1;
+            }
+            for (let i = start; i < this.length; i++) {
+                acc = callback(acc, this[i], i, this);
+            }
+            return acc;
+        }
+
+        let arr4 = arr.myReduce(function (acc, curr) {
+            return acc + curr;
+        }, 0);
+        console.log(arr4);
+
+        // 4. Implement deep clone function.
+        let user = {
+            name: "Rahul",
+            address: {
+                city: "Pune"
+            }
+        };
+
+        function cloneObj(obj) {
+            if (typeof obj !== 'object' || obj === null) {
+                return obj;
+            }
+
+            let copied = Array.isArray(obj) ? [] : {};
+            const keys = Object.keys(obj); // Array/Object keys
+
+            for (let i = 0; i < keys.length; i++) {
+                copied[keys[i]] = cloneObj(obj[keys[i]]);
+            }
+            return copied;
+        }
+        let user2 = cloneObj(user);
+        let user3 = cloneObj(arr)
+        console.log(user2);
+        console.log(user3);
+
+        // 5. Create student management system. 
+        function ManagementSystem(fName, lName, classNo, id, gender, english, math, computer, javaScript, nodeJs) {
+            this.fName = fName; this.lName = lName; this.id = id; this.gender = gender; this.classNo = classNo + "th"; this.english = english; this.math = math; this.computer = computer; this.javaScript = javaScript; this.nodeJs = nodeJs;
+            // Introduction
+            this.introduction = function () {
+                console.log(
+                    `Hi, I'm ${this.fName} ${this.lName}. My ID is ${this.id}. I study in ${this.classNo}.`
+                );
+            };
+
+            // Result
+            this.result = function () {
+
+                let totalMarks = this.english + this.math + this.computer + this.javaScript + this.nodeJs;
+                let percentage = ((totalMarks / 500) * 100).toFixed(2);
+
+                let result = "";
+                let grade = "";
+
+                if (percentage >= 90) {
+                    grade = "A+";
+                    result = "Pass";
+                }
+                else if (percentage >= 80) {
+                    grade = "A";
+                    result = "Pass";
+                }
+                else if (percentage >= 70) {
+                    grade = "B+";
+                    result = "Pass";
+                }
+                else if (percentage >= 60) {
+                    grade = "B";
+                    result = "Pass";
+                }
+                else if (percentage >= 50) {
+                    grade = "C";
+                    result = "Pass";
+                }
+                else if (percentage >= 35) {
+                    grade = "D";
+                    result = "Pass";
+                }
+                else {
+                    grade = "F";
+                    result = "Better Luck Next Time";
+                }
+
+                console.log("--------------- RESULT ---------------");
+                console.log(`Name       : ${this.fName} ${this.lName}`);
+                console.log(`ID         : ${this.id}`);
+                console.log(`Gender     : ${this.gender}`);
+                console.log(`Class      : ${this.classNo}`);
+                console.log(`Total      : ${totalMarks}/500`);
+                console.log(`Percentage : ${percentage}%`);
+                console.log(`Grade      : ${grade}`);
+                console.log(`Result     : ${result}`);
+                console.log("--------------------------------------");
+            };
+        }
+
+        // ================= Students =================
+
+        let student1 = new ManagementSystem("Rahul", "Sharma", 10, 1, "Male", 90, 80, 75, 79, 89);
+        let student2 = new ManagementSystem("Aman", "Patil", 10, 2, "Male", 95, 91, 93, 90, 96);
+        let student3 = new ManagementSystem("Priya", "Verma", 10, 3, "Female", 72, 68, 80, 76, 74);
+        let student4 = new ManagementSystem("Sneha", "Kulkarni", 10, 4, "Female", 55, 60, 58, 62, 57);
+        let student5 = new ManagementSystem("Rohit", "Yadav", 10, 5, "Male", 20, 35, 30, 40, 25);
+
+        // ================= Output =================
+
+        student1.introduction();
+        student1.result();
+
+        student2.introduction();
+        student2.result();
+
+        student3.introduction();
+        student3.result();
+
+        student4.introduction();
+        student4.result();
+
+        student5.introduction();
+        student5.result();
+
+        // 6. Create library management system.
+        class Library {
+            constructor() {
+                this.books = [];
+            }
+
+            addBook(title, author) {
+                const book = {
+                    id: this.books.length + 1,
+                    title,
+                    author,
+                    isIssued: false,
+                };
+
+                this.books.push(book);
+                console.log(`"${title}" added successfully.`);
+            }
+
+            viewBooks() {
+                console.log("\nLibrary Books:");
+
+                this.books.forEach((book) => {
+                    console.log(
+                        `ID: ${book.id}, Title: ${book.title}, Author: ${book.author}, Status: ${book.isIssued ? "Issued" : "Available"
+                        }`
+                    );
+                });
+            }
+
+            issueBook(id) {
+                const book = this.books.find((book) => book.id === id);
+
+                if (!book) {
+                    console.log("Book not found.");
+                    return;
+                }
+
+                if (book.isIssued) {
+                    console.log("Book already issued.");
+                    return;
+                }
+
+                book.isIssued = true;
+                console.log(`"${book.title}" issued successfully.`);
+            }
+
+            returnBook(id) {
+                const book = this.books.find((book) => book.id === id);
+
+                if (!book) {
+                    console.log("Book not found.");
+                    return;
+                }
+
+                if (!book.isIssued) {
+                    console.log("Book is already available.");
+                    return;
+                }
+
+                book.isIssued = false;
+                console.log(`"${book.title}" returned successfully.`);
+            }
+
+            removeBook(id) {
+                this.books = this.books.filter((book) => book.id !== id);
+                console.log(`Book ID ${id} removed.`);
+            }
+        }
+
+
+        const library = new Library();
+
+        library.addBook("Atomic Habits", "James Clear");
+        library.addBook("Rich Dad Poor Dad", "Robert Kiyosaki");
+        library.addBook("The Alchemist", "Paulo Coelho");
+
+        library.viewBooks();
+        library.issueBook(2);
+        library.viewBooks();
+        library.returnBook(2);
+        library.removeBook(3);
+        library.viewBooks();
+
+        // 7. Create expense tracker logic.
+        let expenses = [];
+        let nextId = 1;
+        function addExpense(category, amount) {
+            expenses.push({
+                id: nextId++,
+                category,
+                amount
+            });
+        }
+
+        function viewExpenses() {
+            expenses.forEach((item) => {
+                console.log(`${item.id}. ${item.category} - ${item.amount}`);
+            })
+        }
+
+        function getTotalExpense() {
+            let total = expenses.reduce((acc, curr) => acc + curr.amount, 0);
+            return `Total Expense: ${total}.`
+        }
+
+        function deleteExpense(id) {
+            const before = expenses.length;
+
+            expenses = expenses.filter((value) => value.id !== id);
+
+            if (before === expenses.length) {
+                console.log(`Expense ID ${id} not found.`);
+            } else {
+                console.log(`Expense ID ${id} removed.`);
+            }
+        }
+
+        addExpense("Food", 400);
+        addExpense("Coffee", 100);
+        addExpense("Petrol", 500);
+        addExpense("Fashion", 2400);
+
+        console.log("----------------------");
+        viewExpenses();
+        console.log(getTotalExpense());
+        console.log("----------------------");
+        deleteExpense(1);
+        console.log("----------------------");
+        viewExpenses();
+        console.log(getTotalExpense());
+        console.log("----------------------");
+
+        // 8. Build inventory management system.
+        let inventory = [];
+        let next = 1;
+        function addProduct(name, quantity, price) {
+            inventory.push({
+                id: next++,
+                name,
+                quantity,
+                price
+            });
+        }
+
+        function viewProducts() {
+            inventory.forEach((item) => {
+                console.log(`${item.id}. ${item.name} ${item.quantity} ${item.price}`);
+            });
+        }
+
+        function updateQuantity(id, num) {
+            let update = inventory.find(item => item.id === id);
+            if (!update) {
+                console.log("Product is not found.");
+            } else {
+                update.quantity = num;
+            }
+        }
+
+        function deleteProduct(id) {
+            const before = inventory.length;
+
+            inventory = inventory.filter((value) => value.id !== id);
+
+            if (before === inventory.length) {
+                console.log(`Product ID ${id} not found.`);
+            } else {
+                console.log(`Product ID ${id} removed.`);
+            }
+        }
+
+        function searchProduct(title) {
+            let product = inventory.find(item => item.name.toLowerCase() === title.toLowerCase());
+            if (!product) {
+                console.log("Product is not found.");
+            } else {
+                console.log(`${product.id}. ${product.name} ${product.quantity} ${product.price}`);
+            }
+        }
+
+        function productTotalPrice() {
+            return inventory.reduce((acc, curr) => acc + (curr.quantity * curr.price), 0);
+        }
+
+        addProduct("iPhone", 5, 70000);
+        addProduct("Motorola", 40, 30000);
+        addProduct("Vivo", 80, 20000);
+        addProduct("Oppo", 100, 18000);
+
+        console.log("----------------------");
+
+        updateQuantity(3, 50);
+        deleteProduct(1);
+        searchProduct("Motorola")
+
+        console.log("----------------------");
+
+        viewProducts();
+
+        console.log("----------------------");
+        console.log(productTotalPrice());
+        console.log("----------------------");
+
+
+        // 9. Create function composition utility.
+        const double = (a) => a * 2;
+        const square = (a) => a * a;
+        const addTen = (a) => a + 10;
+
+        function compose(...functions) {
+            return function (value) {
+                return functions.reduceRight((acc, fn) => {
+                    return fn(acc);
+                }, value);
+            };
+        }
+
+        const result = compose(addTen, square, double);
+
+        console.log(result(5));
+
+        // 10. Build calculator using objects and methods.
+        const calculator = {
+            add(a, b) {
+                return a + b;
+            },
+
+            subtract(a, b) {
+                return a - b;
+            },
+
+            multiply(a, b) {
+                return a * b;
+            },
+
+            divide(a, b) {
+                if (b === 0) {
+                    return "Cannot divide by zero";
+                }
+
+                return a / b;
+            }
+        };
+
+        console.log(calculator.add(10, 5));
+        console.log(calculator.subtract(10, 5));
+        console.log(calculator.multiply(10, 5));
+        console.log(calculator.divide(10, 5));
+
+    </script>
+</body>
+
+</html>

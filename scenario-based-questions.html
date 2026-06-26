@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #020617, #0f172a);
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 25px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 920px;
+            background: #1e293b;
+            padding: 40px;
+            border-radius: 18px;
+            border: 1px solid rgba(255, 255, 255, .08);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, .35);
+        }
+
+        h1 {
+            text-align: center;
+            color: #f97316;
+            font-size: 2.3rem;
+            margin-bottom: 10px;
+        }
+
+        .count {
+            text-align: center;
+            color: #facc15;
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .description {
+            text-align: center;
+            color: #cbd5e1;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+
+        .info-box {
+            background: #0f172a;
+            padding: 25px;
+            border-left: 5px solid #f97316;
+            border-radius: 12px;
+            margin-bottom: 25px;
+        }
+
+        .info-box h2 {
+            color: #f97316;
+            margin-bottom: 15px;
+        }
+
+        .info-box ul {
+            list-style: none;
+        }
+
+        .info-box li {
+            padding: 12px 0;
+            color: #e2e8f0;
+            border-bottom: 1px solid rgba(255, 255, 255, .08);
+        }
+
+        .info-box li:last-child {
+            border-bottom: none;
+        }
+
+        .note {
+            background: #334155;
+            padding: 22px;
+            border-left: 5px solid #22c55e;
+            border-radius: 12px;
+            color: #f8fafc;
+            line-height: 1.8;
+        }
+
+        strong {
+            color: #f97316;
+        }
+
+        @media(max-width:768px) {
+
+            body {
+                padding: 15px;
+            }
+
+            .container {
+                padding: 25px;
+            }
+
+            h1 {
+                font-size: 1.9rem;
+            }
+
+            .count {
+                font-size: 1rem;
+            }
+
+            .description,
+            .info-box li,
+            .note {
+                font-size: .95rem;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <h1>🎯 Scenario-Based Questions</h1>
+
+        <p class="count">📄 5 Scenario-Based Challenges</p>
+
+        <p class="description">
+            This page contains real-world JavaScript scenario-based practice questions
+            that focus on analyzing data, solving business problems, and applying core
+            JavaScript concepts to practical situations commonly encountered in software
+            development.
+        </p>
+
+        <div class="info-box">
+
+            <h2>📚 What's Included?</h2>
+
+            <ul>
+                <li>✅ Filter Active Users</li>
+                <li>✅ Calculate Total Revenue</li>
+                <li>✅ Find Second Largest Number</li>
+                <li>✅ Find Missing Number</li>
+                <li>✅ Compare Two Objects</li>
+                <li>✅ Arrays & Objects</li>
+                <li>✅ map(), filter() & reduce()</li>
+                <li>✅ Business Logic Challenges</li>
+                <li>✅ Interview-Oriented Practice Questions</li>
+                <li>✅ Real-World Problem Solving</li>
+            </ul>
+
+        </div>
+
+        <div class="note">
+
+            💡 <strong>How to Use</strong><br><br>
+
+            Open your browser's <strong>Developer Console (F12 → Console)</strong>
+            to view the output of all JavaScript practice questions.
+
+            <br><br>
+
+            🚀 These challenges simulate real-world programming scenarios that help
+            improve logical thinking, data processing, and decision-making skills
+            using modern JavaScript.
+
+        </div>
+
+    </div>
+    <script>
+        // 1. You have an array of users. Return only active users.
+        const users = [
+            {
+                id: 1,
+                name: "Rahul",
+                age: 20,
+                isActive: true,
+            },
+            {
+                id: 2,
+                name: "Aman",
+                age: 22,
+                isActive: false,
+            },
+            {
+                id: 3,
+                name: "Neha",
+                age: 21,
+                isActive: true,
+            },
+            {
+                id: 4,
+                name: "Rohit",
+                age: 23,
+                isActive: false,
+            },
+            {
+                id: 5,
+                name: "Priya",
+                age: 19,
+                isActive: true,
+            },
+        ];
+        let activeUsers = users.filter(user => user.isActive === true);
+        console.log(activeUsers);
+
+        // 2. Calculate total revenue from orders array.
+        const orders = [
+            {
+                orderId: 101,
+                customer: "Rahul",
+                amount: 2500,
+            },
+            {
+                orderId: 102,
+                customer: "Aman",
+                amount: 1800,
+            },
+            {
+                orderId: 103,
+                customer: "Neha",
+                amount: 3200,
+            },
+            {
+                orderId: 104,
+                customer: "Rohit",
+                amount: 1500,
+            },
+            {
+                orderId: 105,
+                customer: "Priya",
+                amount: 4500,
+            },
+        ];
+
+        let totalRevenue = orders.reduce((acc, curr) => acc + curr.amount, 0)
+        console.log(totalRevenue);
+
+        // 3. Find second largest number in array.
+        const numbers = [45, 12, 78, 99, 23, 67, 99, 54, 88, 76, 91];
+        let secondL = numbers.reduce((acc, curr) => {
+            if (curr > acc.larges) {
+                acc.secondLarges = acc.larges;
+                acc.larges = curr;
+            } else if (curr > acc.secondLarges && curr !== acc.larges) {
+                acc.secondLarges = curr;
+            }
+            return acc;
+        }, {
+            larges: -Infinity, // 45
+            secondLarges: -Infinity
+        });
+        console.log(secondL.secondLarges);
+
+        // 4. Find missing number in array.
+        // const numArray = [1, 2, 3, 4, 6, 7, 8, 9, 10];
+
+        // for (let i = 1; i <= 10; i++) {
+        //     if (!numArray.includes(i)) {
+        //         console.log(i);
+        //     }
+        // }
+        const numArray = [1, 2, 3, 4, 6, 7, 8, 9, 10];
+
+        let n = 10;
+
+        // 1 se n tak ka expected sum
+        let expectedSum = (n * (n + 1)) / 2;
+
+        // Array ka actual sum
+        let actualSum = numArray.reduce((acc, curr) => acc + curr, 0);
+
+        // Missing number
+        let missingNumber = expectedSum - actualSum;
+
+        console.log(missingNumber);
+
+        // 5. Check whether two objects are equal.
+        // =========================================
+        // 1. Reference Equality
+        // =========================================
+
+        const obj1 = {
+            name: "Rahul",
+            age: 20
+        };
+
+        const obj2 = {
+            name: "Rahul",
+            age: 20
+        };
+
+        console.log(obj1 === obj2); // false
+
+
+        // =========================================
+        // 2. Same Reference Equality
+        // =========================================
+
+        const obj3 = obj1;
+
+        console.log(obj1 === obj3); // true
+
+
+        // =========================================
+        // 3. Value Equality (Interview Solution)
+        // =========================================
+
+        const person1 = {
+            name: "Rahul",
+            age: 20
+        };
+
+        const person2 = {
+            name: "Rahul",
+            age: 20
+        };
+
+        const keys1 = Object.keys(person1);
+        const keys2 = Object.keys(person2);
+
+        let isEqual = true;
+
+        // Pehle check karo dono objects me keys ki length same hai ya nahi.
+        if (keys1.length !== keys2.length) {
+            isEqual = false;
+        } else {
+
+            // Har key ki value compare karo.
+            for (let key of keys1) {
+
+                if (person1[key] !== person2[key]) {
+                    isEqual = false;
+                    break;
+                }
+
+            }
+
+        }
+
+        console.log(isEqual); // true
+    </script>
+</body>
+
+</html>

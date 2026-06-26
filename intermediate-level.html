@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background: #0f172a;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 25px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 900px;
+            background: #1e293b;
+            padding: 40px;
+            border-radius: 18px;
+            border: 1px solid rgba(255, 255, 255, .08);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, .35);
+        }
+
+        h1 {
+            text-align: center;
+            color: #3b82f6;
+            font-size: 2.3rem;
+            margin-bottom: 10px;
+        }
+
+        .count {
+            text-align: center;
+            color: #facc15;
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .description {
+            text-align: center;
+            color: #cbd5e1;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+
+        .info-box {
+            background: #0f172a;
+            padding: 25px;
+            border-left: 5px solid #3b82f6;
+            border-radius: 12px;
+            margin-bottom: 25px;
+        }
+
+        .info-box h2 {
+            color: #3b82f6;
+            margin-bottom: 15px;
+        }
+
+        .info-box ul {
+            list-style: none;
+        }
+
+        .info-box li {
+            padding: 12px 0;
+            color: #e2e8f0;
+            border-bottom: 1px solid rgba(255, 255, 255, .08);
+        }
+
+        .info-box li:last-child {
+            border-bottom: none;
+        }
+
+        .note {
+            background: #334155;
+            padding: 22px;
+            border-left: 5px solid #22c55e;
+            border-radius: 12px;
+            color: #f8fafc;
+            line-height: 1.8;
+        }
+
+        strong {
+            color: #3b82f6;
+        }
+
+        @media(max-width:768px) {
+
+            body {
+                padding: 15px;
+            }
+
+            .container {
+                padding: 25px;
+            }
+
+            h1 {
+                font-size: 1.9rem;
+            }
+
+            .count {
+                font-size: 1rem;
+            }
+
+            .description,
+            .info-box li,
+            .note {
+                font-size: .95rem;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <h1>📘 Intermediate Level</h1>
+
+        <p class="count">📄 10 Practice Questions</p>
+
+        <p class="description">
+            This page contains intermediate-level JavaScript practice questions focused
+            on modern function concepts, string manipulation, callbacks, higher-order
+            functions, and writing clean, reusable JavaScript code.
+        </p>
+
+        <div class="info-box">
+
+            <h2>📚 What's Included?</h2>
+
+            <ul>
+                <li>✅ Function Expressions</li>
+                <li>✅ Arrow Functions</li>
+                <li>✅ Rest Parameters (...)</li>
+                <li>✅ String Manipulation</li>
+                <li>✅ Palindrome Logic</li>
+                <li>✅ Callback Functions</li>
+                <li>✅ Higher-Order Functions</li>
+                <li>✅ Functions Returning Functions</li>
+                <li>✅ Pure vs Impure Functions</li>
+                <li>✅ Intermediate JavaScript Practice Questions</li>
+            </ul>
+
+        </div>
+
+        <div class="note">
+
+            💡 <strong>How to Use</strong><br><br>
+
+            Open your browser's <strong>Developer Console (F12 → Console)</strong>
+            to view the output of all JavaScript practice questions.
+
+            <br><br>
+
+            🎯 These exercises focus on strengthening JavaScript function concepts,
+            logical thinking, and modern ES6 programming techniques.
+
+        </div>
+
+    </div>
+    <script>
+        // 1. Write a function expression for multiplication.
+        // function mul(a, b) {     // this is function declaration
+        //     return a * b;
+        // }
+        const mul = function (a, b) { // this is function expression
+            return a * b;
+        }
+        console.log(mul(10, 2));
+
+        // 2. Convert a normal function into an arrow function.
+        const arrowFunction = () => "I'm arrow Function";
+        console.log(arrowFunction());
+
+        // 3. Create a function that accepts unlimited numbers and returns their sum using rest operator.
+        function sum(...num) {
+            let sum = 0;
+            for (let value of num) {
+                sum += value;
+            }
+            return sum;
+        }
+        console.log(sum(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)); // 55
+
+        // 4. Write a function that counts vowels in a string.
+        function countVowels(str) {
+            let count = 0;
+            let copy = str.toLowerCase();
+            for (let char of copy) {
+                if ("aeiou".includes(char)) {
+                    count++;
+                }
+            }
+            return count;
+        }
+        console.log(countVowels("JavaScript"));
+        console.log(countVowels("Apple"));
+
+        // 5. Create a function that checks if a string is palindrome.
+        function checks(str) {
+            let copy = str.toLowerCase()
+            let left = 0;
+            let right = str.length - 1;
+            while (left < right) {
+                if (copy[left] !== copy[right]) {
+                    return "Not Palindrome";
+                }
+                left++;
+                right--;
+            }
+            return "Palindrome";
+        }
+        console.log(checks("Madam"));
+
+        // 6. Write a callback function example using `setTimeout`.
+        function call() {
+            console.log("Dekho vo aa gaya");
+        }
+        setTimeout(call, 2000);
+
+        // 7. Create a higher-order function that executes another function twice.
+        function g() {
+            console.log("Helo");
+        }
+        function twice(g) {
+            g();
+            g();
+        }
+        twice(g);
+
+        // 8. Write a function that returns another function.
+        function first() {
+            return function another() {
+                console.log("Another function")
+            }
+        }
+
+        first();
+
+        // 9. Create a pure function for subtraction.
+        function sub(a, b) {
+            return a - b;
+        }
+        console.log(sub(10, 5));
+
+        // 10. Create an impure function using global variable modification.
+        let co = 0;
+        function increase() {
+            return co++;
+        }
+        console.log(increase());
+    </script>
+</body>
+
+</html>
